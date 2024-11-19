@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #EEF2F5;
+    font-size: 16px;
+    font-optical-sizing: auto;
+    font-weight: normal;
+    color: black;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+h3 {
+    font-size: 20px;
+}
+h4 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    min-height: 80px;
+    background: #ffffff;
+    box-shadow: 1px -3px 10px 0px #434343;
+    display: flex;
+    align-items: center;
+}
+
+main {
+    flex: 1;
+    overflow: auto;
+    width: min(100%, 1920px);
+    margin-inline: auto;
+    padding-inline: clamp(16px, 6vw, 64px);
+    margin-top: 64px;
+    margin-bottom: 64px;
+}
+
+input:focus {
+    outline: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+select:focus {
+    outline: none;
+}
+
+.d__none {
+    display: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}

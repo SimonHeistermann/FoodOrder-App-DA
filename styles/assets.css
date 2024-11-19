@@ -1,0 +1,210 @@
+.filter__button {
+    background-color: #ED5834;
+    border-radius: 8px;
+    border-width: 0;
+    padding: 16px 16px;
+    color: white;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.openwhishlist__button {
+    height: 56px;
+    width: 56px;
+    background-image: url('../assets/icons/wishlist_icon.png');
+    border: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: white;
+    cursor: pointer;
+}
+
+.openwhishlist__button:hover {
+    filter: opacity(0.9);
+}
+
+.order__button {
+    background-color: #ED5834;
+    border-radius: 8px;
+    border-width: 0;
+    padding: 16px 16px;
+    color: white;
+    font-size: 16px;
+    width: 50%;
+}
+
+.wishlist__button {
+    background-color: #EEF2F5;
+    border-radius: 8px;
+    border: solid rgba(0, 0, 0, 0.204) 1px;
+    padding: 16px 16px;
+    color: black;
+    font-size: 16px;
+    width: 50%;
+}
+
+.wishlist__button:hover {
+    background-color: #e3e3e6;
+    cursor: pointer;
+}
+
+.filter__button:hover, .order__button:hover {
+    cursor: pointer;
+    background-color: #f36d4c;
+}
+
+.filter__icon {
+    height: 16px;
+    width: 16px;
+}
+
+.minus__button {
+    height: 24px;
+    width: 24px;
+    border-width: 0;
+    background: url('../assets/icons/minus_icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.plus__button {
+    height: 24px;
+    width: 24px;
+    border-width: 0;
+    background: url('../assets/icons/plus_icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.delete__button {
+    height: 24px;
+    width: 24px;
+    border-width: 0;
+    background: url('../assets/icons/delete_icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.delivery__button {
+    height: 32px;
+    width: 32px;
+    border-width: 0;
+    background: url('../assets/icons/delivery__outlined_icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.delivery__button:hover {
+    background-image: url('../assets/icons/delivery_filled_icon.png');
+}
+
+.deliverybutton__selected {
+    height: 32px;
+    width: 32px;
+    border-width: 0;
+    background: url('../assets/icons/delivery_filled_icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.deliverybutton__selected:hover {
+    background-image: url('../assets/icons/delivery__outlined_icon.png');
+}
+
+.takehome__button {
+    height: 32px;
+    width: 32px;
+    border-width: 0;
+    background: url('../assets/icons/take_home_outlined_icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.takehome__button:hover {
+    background-image: url('../assets/icons/take_home_filled_icon.png');
+}
+
+.takehomebutton__selected {
+    height: 32px;
+    width: 32px;
+    border-width: 0;
+    background: url('../assets/icons/take_home_filled_icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.takehomebutton__selected:hover {
+    background-image: url('../assets/icons/take_home_outlined_icon.png');
+}
+
+.delivery__button:hover .tooltip__delivery,
+.deliverybutton__selected:hover .tooltip__delivery, 
+.takehome__button:hover .tooltip__takehome,
+.takehomebutton__selected:hover .tooltip__takehome {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.tooltip__delivery {
+    visibility: hidden;
+    background: #F9F9FB;
+    color: #ED5834;
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+    position: relative;
+    z-index: 10000;
+    top: 0%;
+    left: 160px;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 16px;
+}
+
+.tooltip__takehome {
+    visibility: hidden;
+    background: #F9F9FB;
+    color: #ED5834;
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+    position: relative;
+    z-index: 10000;
+    top: 0%;
+    left: 100px;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 16px;
+}
+
+
+.completeorder__button {
+    background-color: #ED5834;
+    border-radius: 8px;
+    border-width: 0;
+    padding: 16px 16px;
+    color: white;
+    font-size: 16px;
+    width: 100%;
+}
+
+.display__tooltip {
+    visibility: visible;
+    opacity: 1;
+}

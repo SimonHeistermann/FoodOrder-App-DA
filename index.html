@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestell App</title>
+
+    <link rel="icon" type="image/x-icon" href="./assets/icons/delivery_logo_icon.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/x-icon" href="./assets/icons/delivery_logo_icon_white.png" media="(prefers-color-scheme: dark)">
+
+    <link rel="stylesheet" type="text/css" href="./assets/fonts/fonts.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="./styles/standard.css">
+    <link rel="stylesheet" type="text/css" href="./styles/category.css">
+    <link rel="stylesheet" type="text/css" href="./styles/foods.css">
+    <link rel="stylesheet" type="text/css" href="./styles/shopping_cart.css">
+    <link rel="stylesheet" type="text/css" href="./styles/footer.css">
+    <link rel="stylesheet" type="text/css" href="./styles/assets.css">
+
+    <script src="./scripts/db.js"></script>
+    <script src="./script.js"></script>
+    <script src="./scripts/cart.js"></script>
+    <script src="./scripts/templates.js"></script>
+    <script src="./scripts/assets.js"></script>
+    <script src="./scripts/save.js"></script>
+
+</head>
+<body onload="init()">
+    <header>
+        <div class="header__container">
+            <div class="headerlogo__container" onclick="reloadWebsite()">
+                <img src="./assets/icons/delivery_logo_icon.png" alt="Buchladen Logo" class="header__logo">
+                <h1 class="header__headline">Bestell<span class="headerheadline__right">App</span></h1>
+            </div>
+            <div class="headerbox__right">
+                <form onsubmit="searchFood(event)" class="searchbar__container">
+                    <label for="search_input">
+                        <img class="searchbar__logo" src="./assets/icons/lupe_icon.png" alt="Lupe-Icon">
+                    </label>
+                    <input class="searchbar" oninput="searchFood(event)" id="search_input" type="text" placeholder="Suche nach Essen...">
+                </form>
+                <div class="headerbutton__box">
+                    <button onclick="openFilterOverlay()" class="filter__button">
+                        Filter
+                        <img class="filter__icon" src="./assets/icons/filter_icon.png" alt="Filter">
+                    </button>
+                    <button onclick="openWishlist()" class="openwhishlist__button"></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <h2>Entdecke unsere Kategorien</h2>
+        <div class="content__container" id="content_container">
+            <div class="content__left">
+                <div class="categories__container" id="categories_container">
+                </div>
+                <nav>
+                    <button class="navbutton__open" id="nav_popular" onclick="openPopularFoods('popular')"><h2>Beliebt</h2></button>
+                    <button id="nav_recent" onclick="openRecentFoods('recent')"><h2>Zuletzt</h2></button>
+                </nav>
+                <div class="food__section" id="food_section">
+                </div>
+            </div>
+            <div class="content__right" id="content_right">
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <div class="footer__container">
+            <div class="footer__containerbottom">
+                <span class="footer__credits">created by Simon Heistermann</span>
+                <a class="footer__linksextra" href="https://icons8.com/" target="_blank" rel="noopener noreferrer">Icons by icons8.com</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

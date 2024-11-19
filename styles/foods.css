@@ -1,0 +1,171 @@
+nav {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+nav button {
+    border-width: 0;
+    color:  rgba(0, 0, 0, 0.835);
+    background-color: transparent;
+    font-size: 24px;
+    padding-bottom: 8px;
+    max-height: 41px;
+}
+
+nav button:hover, nav button:active {
+    cursor: pointer;
+    color: #ED5834;
+    border-bottom: solid 3px #ED5834;
+}
+
+.navbutton__open {
+    border-bottom: solid 3px #ED5834;
+}
+
+.food__section {
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 100%;
+}
+
+.food__container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 16px;
+    border-radius: 8px;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.13));
+    width: 424px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.foodcontainer__selected {
+    border: solid 2px #ED5834;
+}
+
+.checkbox__container {
+    position: fixed;
+}
+
+.food__container input {
+    position: fixed;
+    opacity: 0;
+    cursor: pointer;
+    height: 16px;
+    width: 16px;
+}
+
+.food__checkbox {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    accent-color: #ED5834;
+    height: 16px;
+    width: 16px;
+    background-color: gray;
+    border-radius: 2px;
+    border: 2px solid transparent;
+    outline: 2px solid gray;
+    outline-offset: 2px;
+}
+
+.food__checkbox:hover {
+    cursor: pointer;
+    background-color: rgb(149, 149, 149);
+}
+
+.food__container input:checked ~ .food__checkbox {
+    background-color: #ED5834;
+    outline: 0;
+}
+
+.food__checkbox:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.food__container input:checked ~ .food__checkbox:after {
+    display: block;
+}
+
+.food__container .food__checkbox:after {
+    left: 2px;
+    top: -2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.foodcontainer__img {
+    background-color: #EEF2F5;
+    border-radius: 8px;
+    padding: 16px 64px 16px 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.foodcontainer__img img {
+    height: 160px;
+    width: 160px;
+}
+
+.foodcontainer__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.priceandrating__container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.priceandrating__container img {
+    height: 16px;
+    width: 16px;
+}
+
+.price__container {
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+}
+
+.current__price {
+    color: #ED5834;
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.prev__price {
+    color: rgba(0, 0, 0, 0.673);
+    text-decoration: line-through;
+}
+
+.rating__container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: rgba(0, 0, 0, 0.673);
+}
+
+.foodbutton__container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
