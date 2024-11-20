@@ -50,7 +50,7 @@
     cursor: pointer;
 }
 
-.filter__button:hover, .order__button:hover {
+.filter__button:hover, .order__button:hover, .completeorder__button:hover {
     cursor: pointer;
     background-color: #f36d4c;
 }

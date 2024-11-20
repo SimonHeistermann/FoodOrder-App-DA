@@ -1,7 +1,8 @@
 let currentCategory = "Burger";
 
+
 function init() {
-    //getFromLocalStorage();
+    getFromLocalStorage();
     renderCategories();
     renderStandardPreview();
     renderCart();
@@ -34,5 +35,18 @@ function renderFood(indexCategory) {
     }
     currentCategory = foodCategories[indexCategory].name;
     styleSelectedCategory();
+};
+
+function openPopularFoods(id) {
+    currentCategory = "Burger";
+    changeNavBorderStyling(id);
+    changeWrapSytlingInFoods(id);
+    renderStandardPreview();
+};
+
+function openFoodCategory(indexCategory, id) {
+    changeNavBorderStyling(id);
+    changeWrapSytlingInFoods(id);
+    renderFood(indexCategory);
 };
 

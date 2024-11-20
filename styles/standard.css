@@ -54,7 +54,7 @@ main {
     margin-inline: auto;
     padding-inline: clamp(16px, 6vw, 64px);
     margin-top: 64px;
-    margin-bottom: 64px;
+    margin-bottom: 160px;
 }
 
 input:focus {

@@ -1,6 +1,6 @@
 function renderHTMLCategories(indexCategory) {
     return  `
-            <div onclick="renderFood(${indexCategory})" class="category__container" id="${foodCategories[indexCategory].name}">
+            <div onclick="openFoodCategory(${indexCategory}, 'popular')" class="category__container" id="${foodCategories[indexCategory].name}">
                 <div class="categorycontainer__img" id="${foodCategories[indexCategory].name}_img">
                     <img src="${foodCategories[indexCategory].icon}" alt="${foodCategories[indexCategory].alternativeForIcon}">
                 </div>
@@ -34,7 +34,7 @@ function renderHTMLStandardPreview(indexPreview) {
                 </div>
                 <div class="foodbutton__container">
                     <button class="wishlist__button">Wunschliste</button>
-                    <button class="order__button" onclick="moveFoodTo(foodCategories, cart, ${4}, ${indexPreview})">Bestellen</button>
+                    <button class="order__button" onclick="moveFoodToCart(foodCategories, cart, ${4}, ${indexPreview})">Bestellen</button>
                 </div>
             </div>
             `
@@ -65,7 +65,7 @@ function renderHTMLFood(indexCategory, indexFood) {
                 </div>
                 <div class="foodbutton__container">
                     <button class="wishlist__button">Wunschliste</button>
-                    <button onclick="moveFoodTo(foodCategories, cart, ${indexCategory}, ${indexFood})" class="order__button">Bestellen</button>
+                    <button onclick="moveFoodToCart(foodCategories, cart, ${indexCategory}, ${indexFood})" class="order__button">Bestellen</button>
                 </div>
             </div>
             `
@@ -73,7 +73,7 @@ function renderHTMLFood(indexCategory, indexFood) {
 
 function renderHTMLCartStructure() {
     return  `
-            <form onsubmit="submitOrder(event)" class="shopping__cart" id="shopping_cart">
+            <form name="shoppingcart" onsubmit="submitOrder(event)" class="shopping__cart" id="shopping_cart">
                 <div class="shoppingcart__content">
                 <div class="cart__header">
                     <h2>Einkaufswagen</h2>
@@ -128,7 +128,10 @@ function renderHTMLCartStructure() {
                             </div>
                         </div>
                         <div class="paymentservice__section">
-                            <h4>Bezahlmethoden</h4>
+                            <div class="paymentservice__header">
+                                 <h4>Bezahlmethoden</h4>
+                                 <span class="paymenterror__message d__none" id="payment_errormessage">Bitte wählen Sie eine aus!</span>
+                            </div>
                             <div class="paymentservices__container">
                                 <div onclick="toggleBorderOnPayment('apple_pay')" class="payment__service" id="apple_pay">
                                     <img src="./assets/icons/apple_pay_icon.png" alt="Apple Pay">
@@ -154,7 +157,7 @@ function renderHTMLCartStructure() {
 function renderHTMLCartItems(indexCart) {
     return  `
              <div class="cart__item">
-                <div class="cartitem__img" id="">
+                <div class="cartitem__img">
                     <img src="${cart[indexCart].img}" alt="${cart[indexCart].alternativeForImg}">
                 </div>
                 <div class="cartitem__content">
@@ -189,6 +192,55 @@ function renderHTMLSuccessfulOrder() {
                 <span>Bestellung erfolgreich!</span>
                 <span class="${delivered ? '' : 'd__none'}">In 20 Minuten bei Ihnen...</span>
                 <span class="${delivered ? 'd__none' : ''}">In 15 Minuten abholbereit...</span>
+            </div>
+            `
+};
+
+function renderHTMLRecentOrders(indexRecentOrders) {
+    return  `
+            <div class="food__container">
+                <label class="checkbox__container">
+                    <input type="checkbox" onchange="">
+                    <span class="food__checkbox"></span>
+                </label>
+                <div class="foodcontainer__img">
+                    <img src="${recentOrders[indexRecentOrders].img}" alt="${recentOrders[indexRecentOrders].alternativeForImg}">
+                </div>
+                <div class="foodcontainer__content">
+                    <h2>${recentOrders[indexRecentOrders].name}</h2>
+                    <div class="priceandrating__container">
+                        <div class="price__container">
+                            <span class="current__price">€${replaceDotWithComma(recentOrders[indexRecentOrders].currentPrice)}</span>
+                            <span class="prev__price">€${replaceDotWithComma(recentOrders[indexRecentOrders].prevPrice)}</span>
+                        </div>
+                        <div class="rating__container">
+                            <img src="../assets/icons/star_icon.png" alt="Stern">
+                            ${recentOrders[indexRecentOrders].rating}/5
+                        </div>
+                    </div>
+                </div>
+                <div class="foodbutton__container">
+                    <button class="wishlist__button">Wunschliste</button>
+                    <button onclick="moveRecentOrdersToCart(${indexRecentOrders})" class="order__button">Bestellen</button>
+                </div>
+            </div>
+            `
+};
+
+function renderHTMLNoRecentOrders() {
+    return  `
+            <div class="food__container">
+                <h2>Noch keine Bestellung getätigt...<h2>
+                <button onclick="openPopularFoods('popular')" class="completeorder__button">Jetzt betstellen</button>
+            </div>
+            `
+};
+
+function renderHTMLNotSuccessfulOrder() {
+    return  `
+            <div class="noitemsin__cart">
+                <span>Bestellung war nicht erfolgreich!</span>
+                <span>Keine Bestellungen im Warenkorb...</span>
             </div>
             `
 };

@@ -400,8 +400,11 @@ let foodCategories = [
             }
         ]
     }
-]
+];
 
-let giftCodes = [
-    "ATH10", "SH5", "JH10", "JF5"
-]
+let giftCodes = ["ATH10", "SH5", "JH10", "JF5"
+];
+
+let navOptions = ["popular", "recent"];
+
+let allPayments = ["apple_pay", "mastercard", "paypal", "google_pay"];

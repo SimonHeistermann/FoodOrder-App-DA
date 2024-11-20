@@ -1,5 +1,4 @@
 let cart = [];
-let recents = [];
 let subTotalSum = 0;
 let nettoSum = 0;
 let deliveryCost = 5;
@@ -7,6 +6,7 @@ let delivered = true;
 let giftValue = 0;
 let displayErorrGift = false;
 let totalSum = 0;
+
 
 function renderCart() {
     sumCalculator();
@@ -25,7 +25,7 @@ function renderCart() {
     }
 };
 
-function moveFoodTo(from, target, indexCategory, indexFood) {
+function moveFoodToCart(from, target, indexCategory, indexFood) {
     let currentFood = from[indexCategory].foods.slice(indexFood, indexFood + 1)[0];
     if (currentFood.amountInCart === 0) {
         currentFood.amountInCart += 1;
@@ -33,6 +33,7 @@ function moveFoodTo(from, target, indexCategory, indexFood) {
     } else {
         currentFood.amountInCart += 1;
     }
+    saveToLocalStorage();
     renderCart();
 };
 
@@ -105,13 +106,16 @@ function displayGiftError(validCode) {
 };
 
 function toggleBorderOnPayment(id) {
-    let allPayments = ['apple_pay', 'mastercard', 'paypal', 'google_pay']
+    removeBorderOnPayment();
+    let element = document.getElementById(id);
+    element.classList.toggle('paymentservice__selected');
+};
+
+function removeBorderOnPayment() {
     for (let i = 0; i < allPayments.length; i++) {
         let element = document.getElementById(allPayments[i]);
         element.classList.remove('paymentservice__selected');
     }
-    let element = document.getElementById(id);
-    element.classList.toggle('paymentservice__selected');
 };
 
 function changeItemAmount(indexCart, mathOp) {
@@ -120,6 +124,7 @@ function changeItemAmount(indexCart, mathOp) {
     } else if (mathOp === 'minus') {
         reduceItemAmount(indexCart);
     }
+    saveToLocalStorage();
     renderCart();
 };
 
@@ -148,6 +153,7 @@ function changeItemAmountWithInput(event, indexCart) {
             cart[indexCart].amountInCart = amount;
             cart.splice(indexCart, 1);
         }
+        saveToLocalStorage();
         renderCart();
     }
 };
@@ -155,10 +161,64 @@ function changeItemAmountWithInput(event, indexCart) {
 function submitOrder(event) {
     event.preventDefault();
     let cartItemContainerRef = document.getElementById('cartitems_container');
+    if(cart.length > 0) {
+        if(checkForPaymentService()) {
+            confirmOrder();
+        } else {
+        toggleDisplayPaymentError(true);
+        }
+    } else {
+        cartItemContainerRef.innerHTML = "";
+        cartItemContainerRef.innerHTML += renderHTMLNotSuccessfulOrder();
+        removeBorderOnPayment();
+    }
+};
+
+function checkForPaymentService() {
+    for (let i = 0; i < allPayments.length; i++) {
+        let element = document.getElementById(allPayments[i]);
+        if(element.classList.contains('paymentservice__selected')) {
+            return true;
+        }
+    }
+};
+
+function confirmOrder() {
+    toggleDisplayPaymentError(false);
+    pushRecentOrderInRecentOrders();
+    clearItems(cart);
+    saveToLocalStorage();
+    renderSuccessfulOrder();
+    checkIfNavRecent();
+};
+
+function pushRecentOrderInRecentOrders() {
+    let recentOrder = cart.slice(0, cart.length);
+
+    for (let i = 0; i < recentOrder.length; i++) {
+        let index = findObjectIndexInArray(recentOrders, recentOrder[i]);
+        if (index !== -1) {
+            recentOrders.splice(index, 1);
+        }
+        recentOrders.push(recentOrder[i]);
+    }
+};
+
+function renderSuccessfulOrder() {
+    let cartItemContainerRef = document.getElementById('cartitems_container')
     cartItemContainerRef.innerHTML = "";
     cartItemContainerRef.innerHTML += renderHTMLSuccessfulOrder();
-    recents = cart.slice(0, cart.length);
-    clearItems(cart);
+    removeBorderOnPayment();
 };
+
+function toggleDisplayPaymentError(value) {
+    let errorRef = document.getElementById('payment_errormessage');
+    if(value) {
+        errorRef.classList.remove('d__none')
+    } else {
+        errorRef.classList.add('d__none');
+    }
+};
+
 
 

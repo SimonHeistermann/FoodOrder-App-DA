@@ -151,6 +151,16 @@
     padding: 16px;
 }
 
+.paymentservice__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.paymenterror__message {
+    color: #ED5834;
+}
+
 .payment__container {
     display: flex;
     flex-direction: column;

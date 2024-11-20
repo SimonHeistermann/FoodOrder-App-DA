@@ -32,6 +32,14 @@ nav button:hover, nav button:active {
     width: 100%;
 }
 
+.foodsection__recents {
+    margin-top: 32px;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    gap: 16px;
+    width: 100%;
+}
+
 .food__container {
     background-color: white;
     display: flex;
