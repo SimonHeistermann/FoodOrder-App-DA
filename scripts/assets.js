@@ -25,6 +25,7 @@ function replaceDotWithComma(number) {
 };
 
 function deleteItemFrom(index, from) {
+    from[index].amountInCart = 0;
     from.splice(index, 1);
     saveToLocalStorage();
     renderCart();

@@ -70,7 +70,7 @@ select:focus {
 }
 
 .d__none {
-    display: none;
+    display: none !important;
 }
 
 input[type=number]::-webkit-inner-spin-button,

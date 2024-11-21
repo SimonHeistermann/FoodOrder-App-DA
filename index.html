@@ -57,8 +57,12 @@
                 <div class="categories__container" id="categories_container">
                 </div>
                 <nav>
-                    <button class="navbutton__open" id="nav_popular" onclick="openPopularFoods('popular')"><h2>Beliebt</h2></button>
-                    <button class="" id="nav_recent" onclick="openRecentOrders('recent')"><h2>Zuletzt</h2></button>
+                    <div class="nav__container">
+                        <button class="navbutton__open" id="nav_popular" onclick="openPopularFoods('popular')"><h2>Beliebt</h2></button>
+                        <button class="" id="nav_recent" onclick="openRecentOrders('recent')"><h2>Zuletzt</h2></button>
+                    </div>
+                    <button onclick="orderTempCartFoods()" id="orderselected_button" class="orderselected__button d__none">Alles Bestellen</button>
+                    
                 </nav>
                 <div class="food__section" id="food_section">
                 </div>

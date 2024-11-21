@@ -8,6 +8,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    cursor: pointer;
 }
 
 .openwhishlist__button {
@@ -33,6 +34,7 @@
     color: white;
     font-size: 16px;
     width: 50%;
+    cursor: pointer;
 }
 
 .wishlist__button {
@@ -43,6 +45,7 @@
     color: black;
     font-size: 16px;
     width: 50%;
+    cursor: pointer;
 }
 
 .wishlist__button:hover {
@@ -50,9 +53,11 @@
     cursor: pointer;
 }
 
-.filter__button:hover, .order__button:hover, .completeorder__button:hover {
+.filter__button:hover, .order__button:hover, 
+.completeorder__button:hover, .orderselected__button:hover {
     cursor: pointer;
     background-color: #f36d4c;
+    border: 0;
 }
 
 .filter__icon {
@@ -202,9 +207,23 @@
     color: white;
     font-size: 16px;
     width: 100%;
+    cursor: pointer;
 }
 
 .display__tooltip {
     visibility: visible;
     opacity: 1;
+}
+
+.orderselected__button {
+    background-color: #ED5834;
+    border-radius: 8px;
+    border-width: 0;
+    padding: 16px 16px;
+    color: white !important;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }

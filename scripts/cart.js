@@ -1,4 +1,5 @@
 let cart = [];
+let tempCart = [];
 let subTotalSum = 0;
 let nettoSum = 0;
 let deliveryCost = 5;
@@ -218,6 +219,70 @@ function toggleDisplayPaymentError(value) {
     } else {
         errorRef.classList.add('d__none');
     }
+};
+
+function checkCheckBox(indexCategory, indexFood) {
+    let checkBoxRef = document.getElementById('checkbox_' + indexFood);
+    let orderSelectedButtonRef = document.getElementById('orderselected_button');
+
+    if (checkBoxRef.checked === true) {
+        orderSelectedButtonRef.classList.remove('d__none');
+        foodCategories[indexCategory].foods[indexFood].selected = true;
+        moveFoodToTempCart(indexCategory, indexFood);
+    } else if (checkBoxRef.checked === false) {
+        foodCategories[indexCategory].foods[indexFood].selected = false;
+        removeFoodFromTempCart(indexCategory, indexFood);
+        if(tempCart.length === 0) {
+            orderSelectedButtonRef.classList.add('d__none');
+        }
+    }
+};
+
+function moveFoodToTempCart (indexCategory, indexFood) {
+    let currentFood = foodCategories[indexCategory].foods.slice(indexFood, indexFood + 1)[0];
+    tempCart.push(currentFood);
+};
+
+function removeFoodFromTempCart(indexCategory, indexFood) {
+    let currentFood = foodCategories[indexCategory].foods.slice(indexFood, indexFood + 1)[0];
+    let index = findObjectIndexInArray(tempCart, currentFood);
+        if (index !== -1) {
+            tempCart.splice(index, 1);
+        }
+};
+
+function orderTempCartFoods() {
+    if (tempCart.length > 0) {
+        moveTempCartInCart();
+        removeAllFoodsFromTempCart();
+        let orderSelectedButtonRef = document.getElementById('orderselected_button');
+        orderSelectedButtonRef.classList.add('d__none');
+        saveToLocalStorage();
+        renderCart();
+    }
+};
+
+function moveTempCartInCart() {
+    for (let indexTempCart = 0; indexTempCart < tempCart.length; indexTempCart++) {
+        let tempCartFood = tempCart[indexTempCart];
+        if (tempCartFood.amountInCart === 0) {
+            tempCartFood.amountInCart += 1;
+            cart.push(tempCartFood);
+        } else {
+            tempCartFood.amountInCart += 1;
+        }
+    }
+};
+
+function removeAllFoodsFromTempCart() {
+    for (let indexCategory = 0; indexCategory < foodCategories.length; indexCategory++) {
+        for (let indexFood = 0; indexFood < foodCategories[indexCategory].foods.length; indexFood++) {
+            foodCategories[indexCategory].foods[indexFood].selected = false;
+            let checkBoxRef = document.getElementById('checkbox_' + indexFood);
+            checkBoxRef.checked = false;
+        }
+    }
+    tempCart.length = 0;
 };
 
 

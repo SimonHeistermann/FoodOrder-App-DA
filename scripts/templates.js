@@ -13,7 +13,7 @@ function renderHTMLStandardPreview(indexPreview) {
     return  `
             <div class="food__container">
                 <label class="checkbox__container">
-                    <input type="checkbox" onchange="">
+                    <input id="checkbox_${indexPreview}" type="checkbox" onclick="checkCheckBox(${4}, ${indexPreview})">
                     <span class="food__checkbox"></span>
                 </label>
                 <div class="foodcontainer__img">
@@ -44,7 +44,7 @@ function renderHTMLFood(indexCategory, indexFood) {
     return  `
             <div class="food__container">
                 <label class="checkbox__container">
-                    <input type="checkbox" onchange="">
+                    <input id="checkbox_${indexFood}" type="checkbox" onclick="checkCheckBox(${indexCategory}, ${indexFood})">
                     <span class="food__checkbox"></span>
                 </label>
                 <div class="foodcontainer__img">
