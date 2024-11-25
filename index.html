@@ -21,6 +21,7 @@
     <script src="./script.js"></script>
     <script src="./scripts/cart.js"></script>
     <script src="./scripts/recents.js"></script>
+    <script src="./scripts/wishlist.js"></script>
     <script src="./scripts/templates.js"></script>
     <script src="./scripts/assets.js"></script>
     <script src="./scripts/save.js"></script>
@@ -45,15 +46,17 @@
                         Filter
                         <img class="filter__icon" src="./assets/icons/filter_icon.png" alt="Filter">
                     </button>
-                    <button onclick="openWishlist()" class="openwhishlist__button"></button>
+                    <button id="wishlist_logo" onclick="openWishlist()" class="openwhishlist__button"></button>
+                    <button id="home_logo" onclick="init()" class="openhome__button d__none"></button>
                 </div>
             </div>
         </div>
     </header>
     <main>
-        <h2>Entdecke unsere Kategorien</h2>
+        <h2 id="wishlist_header" class="d__none">Wunschliste</h2>
+        <h2 id="standard_header" class="">Entdecke unsere Kategorien</h2>
         <div class="content__container" id="content_container">
-            <div class="content__left">
+            <div class="content__left" id="content_left">
                 <div class="categories__container" id="categories_container">
                 </div>
                 <nav>

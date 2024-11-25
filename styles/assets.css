@@ -22,9 +22,21 @@
     cursor: pointer;
 }
 
-.openwhishlist__button:hover {
+.openhome__button {
+    height: 56px;
+    width: 56px;
+    background-image: url('../assets/icons/home_icon.png');
+    border: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: white;
+    cursor: pointer;
+}
+
+.openwhishlist__button:hover, .openhome__button:hover {
     filter: opacity(0.9);
 }
+
 
 .order__button {
     background-color: #ED5834;

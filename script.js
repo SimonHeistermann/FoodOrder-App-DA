@@ -1,11 +1,23 @@
 let currentCategory = "Burger";
 
-
 function init() {
     getFromLocalStorage();
+    generateObjectIds();
+    changeWishlistAndHomeLogo('home');
+    changeHeader('standard');
+    renderStandardStructure();
     renderCategories();
     renderStandardPreview();
     renderCart();
+};
+
+function generateObjectIds() {
+    foodCategories.forEach(function(category, categoryIndex) {
+        category.foods.forEach(function(food, foodIndex) {
+            food.id = `category_${categoryIndex}_food_${foodIndex}`;
+        });
+    });
+    saveToLocalStorage();
 };
 
 function renderCategories() {
@@ -39,7 +51,10 @@ function renderFood(indexCategory) {
 
 function openPopularFoods(id) {
     currentCategory = "Burger";
+    renderStandardStructure();
+    renderCategories();
     changeNavBorderStyling(id);
+    changeHeader('standard');
     changeWrapSytlingInFoods(id);
     renderStandardPreview();
 };

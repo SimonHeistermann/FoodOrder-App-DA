@@ -2,6 +2,7 @@ function saveToLocalStorage() {
     saveFoodToLocalStorage();
     saveCartToLocalStorage();
     saveRecentOrdersToLocalStorage();
+    saveWishlistToLocalStorage();
 };
 
 function saveFoodToLocalStorage() {
@@ -16,6 +17,10 @@ function saveRecentOrdersToLocalStorage() {
     localStorage.setItem("recentOrders", JSON.stringify(recentOrders));
 };
 
+function saveWishlistToLocalStorage() {
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+};
+
 function getFromLocalStorage() {
     let storedFood = localStorage.getItem("food");
     if (storedFood) {
@@ -28,5 +33,9 @@ function getFromLocalStorage() {
     let storedRecentOrders = localStorage.getItem("recentOrders");
     if (storedRecentOrders) {
         recentOrders = JSON.parse(storedRecentOrders);
+    }
+    let storedWishlist = localStorage.getItem("wishlist");
+    if (storedWishlist) {
+        wishlist = JSON.parse(storedWishlist);
     }
 };

@@ -33,8 +33,8 @@ function renderHTMLStandardPreview(indexPreview) {
                     </div>
                 </div>
                 <div class="foodbutton__container">
-                    <button class="wishlist__button">Wunschliste</button>
-                    <button class="order__button" onclick="moveFoodToCart(foodCategories, cart, ${4}, ${indexPreview})">Bestellen</button>
+                    <button onclick="copyFoodToWishlist(${4}, ${indexPreview})" class="wishlist__button">Wunschliste</button>
+                    <button class="order__button" onclick="moveFoodToCart(${4}, ${indexPreview})">Bestellen</button>
                 </div>
             </div>
             `
@@ -64,8 +64,8 @@ function renderHTMLFood(indexCategory, indexFood) {
                     </div>
                 </div>
                 <div class="foodbutton__container">
-                    <button class="wishlist__button">Wunschliste</button>
-                    <button onclick="moveFoodToCart(foodCategories, cart, ${indexCategory}, ${indexFood})" class="order__button">Bestellen</button>
+                    <button onclick="copyFoodToWishlist(${indexCategory}, ${indexFood})" class="wishlist__button">Wunschliste</button>
+                    <button onclick="moveFoodToCart(${indexCategory}, ${indexFood})" class="order__button">Bestellen</button>
                 </div>
             </div>
             `
@@ -199,10 +199,6 @@ function renderHTMLSuccessfulOrder() {
 function renderHTMLRecentOrders(indexRecentOrders) {
     return  `
             <div class="food__container">
-                <label class="checkbox__container">
-                    <input type="checkbox" onchange="">
-                    <span class="food__checkbox"></span>
-                </label>
                 <div class="foodcontainer__img">
                     <img src="${recentOrders[indexRecentOrders].img}" alt="${recentOrders[indexRecentOrders].alternativeForImg}">
                 </div>
@@ -220,7 +216,7 @@ function renderHTMLRecentOrders(indexRecentOrders) {
                     </div>
                 </div>
                 <div class="foodbutton__container">
-                    <button class="wishlist__button">Wunschliste</button>
+                    <button onclick="removeFromArray(recentOrders, ${indexRecentOrders})" class="wishlist__button">Entfernen</button>
                     <button onclick="moveRecentOrdersToCart(${indexRecentOrders})" class="order__button">Bestellen</button>
                 </div>
             </div>
@@ -242,6 +238,70 @@ function renderHTMLNotSuccessfulOrder() {
                 <span>Bestellung war nicht erfolgreich!</span>
                 <span>Keine Bestellungen im Warenkorb...</span>
             </div>
+            `
+};
+
+function renderHTMLWishlistStructure() {
+    return  `
+            <div class="categories__container" id="categories_container">
+                <div class="food__section" id="food_section">
+                </div>
+            </div>
+            `
+};
+
+
+function renderHTMLWishlistFood(indexWishlist) {
+    return  `
+        <div class="food__container">
+                <div class="foodcontainer__img">
+                    <img src="${wishlist[indexWishlist].img}" alt="${wishlist[indexWishlist].alternativeForImg}">
+                </div>
+                <div class="foodcontainer__content">
+                    <h2>${wishlist[indexWishlist].name}</h2>
+                    <div class="priceandrating__container">
+                        <div class="price__container">
+                            <span class="current__price">€${replaceDotWithComma(wishlist[indexWishlist].currentPrice)}</span>
+                            <span class="prev__price">€${replaceDotWithComma(wishlist[indexWishlist].prevPrice)}</span>
+                        </div>
+                        <div class="rating__container">
+                            <img src="../assets/icons/star_icon.png" alt="Stern">
+                            ${wishlist[indexWishlist].rating}/5
+                        </div>
+                    </div>
+                </div>
+                <div class="foodbutton__container">
+                    <button onclick="removeFromArray(wishlist, ${indexWishlist})" class="wishlist__button">Entfernen</button>
+                    <button onclick="moveWishlistFoodToCart(${indexWishlist})" class="order__button">Bestellen</button>
+                </div>
+            </div>
+            `
+};
+
+function renderHTMLWishlistNoContent() {
+    return  `
+            <div class="food__container">
+                <h2>Noch kein Essen in der Wunschliste...<h2>
+                <button onclick="openPopularFoods('popular')" class="completeorder__button">Jetzt betstellen</button>
+            </div>
+            `
+};
+
+function renderHTMLStandardStructure() {
+    return  `
+            <div class="categories__container" id="categories_container">
+            </div>
+                <nav>
+                    <div class="nav__container">
+                        <button class="navbutton__open" id="nav_popular" onclick="openPopularFoods('popular')"><h2>Beliebt</h2></button>
+                        <button class="" id="nav_recent" onclick="openRecentOrders('recent')"><h2>Zuletzt</h2></button>
+                    </div>
+                    <button onclick="orderTempCartFoods()" id="orderselected_button" class="orderselected__button d__none">
+                        Alles Bestellen
+                    </button>
+                </nav>
+                <div class="food__section" id="food_section">
+                </div>
             `
 };
 

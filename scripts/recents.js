@@ -2,6 +2,7 @@ let recentOrders = [];
 
 
 function openRecentOrders(id) {
+    renderCategories();
     removeSelectedStyle();
     changeNavBorderStyling(id);
     changeWrapSytlingInFoods(id);
@@ -20,15 +21,20 @@ function renderRecentOrders() {
     }
 };
 
-
 function moveRecentOrdersToCart(indexRecentOrders) {
-    let currentFood = recentOrders.slice(indexRecentOrders, indexRecentOrders + 1)[0];
+    let currentFood = recentOrders[indexRecentOrders];
+    if (!currentFood) return;
+    addToCartIfNotExists(cart, currentFood);
     if (currentFood.amountInCart === 0) {
-        currentFood.amountInCart += 1;
-        cart.push(currentFood);
+        currentFood.amountInCart = 1;
     } else {
         currentFood.amountInCart += 1;
     }
+    updateAmount(wishlist, currentFood);
+    updateAmount(cart, currentFood);
+    updateAmountInFoodCategories(currentFood); 
     saveToLocalStorage();
     renderCart();
 };
+
+

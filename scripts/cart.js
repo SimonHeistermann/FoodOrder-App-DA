@@ -26,14 +26,21 @@ function renderCart() {
     }
 };
 
-function moveFoodToCart(from, target, indexCategory, indexFood) {
-    let currentFood = from[indexCategory].foods.slice(indexFood, indexFood + 1)[0];
+function moveFoodToCart(indexCategory, indexFood) {
+    let category = foodCategories[indexCategory];
+    if (!category || !category.foods) return;
+    let currentFood = category.foods[indexFood];
+    if (!currentFood) return;
+    addToCartIfNotExists(cart, currentFood);
     if (currentFood.amountInCart === 0) {
-        currentFood.amountInCart += 1;
-        target.push(currentFood);
+        currentFood.amountInCart = 1;
     } else {
         currentFood.amountInCart += 1;
     }
+    updateAmount(wishlist, currentFood);
+    updateAmount(recentOrders, currentFood);
+    updateAmount(cart, currentFood);
+    updateAmountInFoodCategories(currentFood); 
     saveToLocalStorage();
     renderCart();
 };
@@ -129,31 +136,47 @@ function changeItemAmount(indexCart, mathOp) {
     renderCart();
 };
 
+
 function raiseItemAmount(indexCart) {
-    if(cart[indexCart].amountInCart > 0) {
+    if (cart[indexCart].amountInCart > 0) {
         cart[indexCart].amountInCart++;
+        updateAmountInFoodCategories(cart[indexCart]);
+        updateAmount(wishlist, cart[indexCart]);
+        updateAmount(recentOrders, cart[indexCart]);
     }
 };
 
+
 function reduceItemAmount(indexCart) {
-    if(cart[indexCart].amountInCart > 1) {
+    if (cart[indexCart].amountInCart > 1) {
         cart[indexCart].amountInCart--;
-    } else if (cart[indexCart].amountInCart === 1){
+        updateAmountInFoodCategories(cart[indexCart]);
+        updateAmount(wishlist, cart[indexCart]);
+        updateAmount(recentOrders, cart[indexCart]);
+    } else if (cart[indexCart].amountInCart === 1) {
         cart[indexCart].amountInCart--;
-        cart.splice(indexCart, 1);
+        updateAmountInFoodCategories(cart[indexCart]);
+        updateAmount(wishlist, cart[indexCart]);
+        updateAmount(recentOrders, cart[indexCart]);
+        if (cart[indexCart].amountInCart === 0) {
+            cart.splice(indexCart, 1);
+        }
     }
 };
 
 function changeItemAmountWithInput(event, indexCart) {
-    if(event.key === "Enter") {
+    if (event.key === "Enter") {
         let amountInput = document.getElementById('amountincart');
-        amount = amountInput.value;
-        if(amount > 0) {
+        let amount = parseInt(amountInput.value, 10);
+        if (amount > 0) {
             cart[indexCart].amountInCart = amount;
-        } else if (amount == 0) {
-            cart[indexCart].amountInCart = amount;
-            cart.splice(indexCart, 1);
+        } else if (amount === 0) {
+            cart[indexCart].amountInCart = 0;
+            cart.splice(indexCart, 1); 
         }
+        updateAmountInFoodCategories(cart[indexCart]);
+        updateAmount(wishlist, cart[indexCart]);
+        updateAmount(recentOrders, cart[indexCart]);
         saveToLocalStorage();
         renderCart();
     }
@@ -238,17 +261,18 @@ function checkCheckBox(indexCategory, indexFood) {
     }
 };
 
-function moveFoodToTempCart (indexCategory, indexFood) {
-    let currentFood = foodCategories[indexCategory].foods.slice(indexFood, indexFood + 1)[0];
+function moveFoodToTempCart(indexCategory, indexFood) {
+    let currentFood = foodCategories[indexCategory].foods[indexFood];
     tempCart.push(currentFood);
 };
 
+
 function removeFoodFromTempCart(indexCategory, indexFood) {
-    let currentFood = foodCategories[indexCategory].foods.slice(indexFood, indexFood + 1)[0];
+    let currentFood = foodCategories[indexCategory].foods[indexFood];
     let index = findObjectIndexInArray(tempCart, currentFood);
-        if (index !== -1) {
-            tempCart.splice(index, 1);
-        }
+    if (index !== -1) {
+        tempCart.splice(index, 1);
+    }
 };
 
 function orderTempCartFoods() {
@@ -265,12 +289,19 @@ function orderTempCartFoods() {
 function moveTempCartInCart() {
     for (let indexTempCart = 0; indexTempCart < tempCart.length; indexTempCart++) {
         let tempCartFood = tempCart[indexTempCart];
+        if(!tempCartFood) return;
+        addToCartIfNotExists(cart, tempCartFood);
         if (tempCartFood.amountInCart === 0) {
-            tempCartFood.amountInCart += 1;
-            cart.push(tempCartFood);
+            tempCartFood.amountInCart = 1;
         } else {
             tempCartFood.amountInCart += 1;
         }
+        updateAmount(recentOrders, tempCartFood);
+        updateAmount(wishlist, tempCartFood);
+        updateAmount(cart, tempCartFood);
+        updateAmountInFoodCategories(tempCartFood);
+        saveToLocalStorage();
+        renderCart();
     }
 };
 

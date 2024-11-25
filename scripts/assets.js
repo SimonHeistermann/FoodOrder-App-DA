@@ -26,14 +26,27 @@ function replaceDotWithComma(number) {
 
 function deleteItemFrom(index, from) {
     from[index].amountInCart = 0;
-    from.splice(index, 1);
+    if (from[index].amountInCart === 0) {
+        from.splice(index, 1);
+    }
+    updateAmountInFoodCategories(from[index]);
+    updateAmount(wishlist, from[index]);
+    updateAmount(recentOrders, from[index]);
     saveToLocalStorage();
     renderCart();
 };
 
 function clearItems(location) {
-    for (let i = 0; i < location.length; i++) {
-        location[i].amountInCart = 0;
+    let listsToClear = [location, wishlist, recentOrders];
+    for (let list of listsToClear) {
+        for (let i = 0; i < list.length; i++) {
+            list[i].amountInCart = 0;
+        }
+    }
+    for (let indexCategory = 0; indexCategory < foodCategories.length; indexCategory++) {
+        for (let indexFood = 0; indexFood < foodCategories[indexCategory].foods.length; indexFood++) {
+            foodCategories[indexCategory].foods[indexFood].amountInCart = 0;
+        }
     }
     location.length = 0;
     saveToLocalStorage();
@@ -64,16 +77,82 @@ function changeWrapSytlingInFoods(identification) {
 
 function checkIfNavRecent() {
     let navRef = document.getElementById('nav_recent');
-    if (navRef.classList.contains('navbutton__open')) {
-        renderRecentOrders();
+    if (navRef !== undefined && navRef !== null) {
+        if (navRef.classList.contains('navbutton__open')) {
+            renderRecentOrders();
+        }
     }
 };
 
 function findObjectIndexInArray(array, objectToFind) {
-    for (let j = 0; j < array.length; j++) {
-        if (JSON.stringify(array[j]) === JSON.stringify(objectToFind)) {
-            return j;
+    if (!objectToFind || typeof objectToFind.id === "undefined") {
+        return -1;
+    }
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] && typeof array[i].id !== "undefined" && array[i].id === objectToFind.id) {
+            return i;
         }
     }
-    return -1; 
+    return -1;
+};
+
+function renderStandardStructure() {
+    let contentStructureRef = document.getElementById('content_left');
+    contentStructureRef.innerHTML = "";
+    contentStructureRef.innerHTML += renderHTMLStandardStructure();
+};
+
+function changeHeader(window) {
+    for (let i = 0; i < windows.length; i++) {
+        let headerRef = document.getElementById(windows[i] + '_header');
+        headerRef.classList.add('d__none');
+    }
+    let headerRef = document.getElementById(window + '_header');
+    headerRef.classList.remove('d__none');
+};
+
+function updateAmount(array, food) {
+    let index = findObjectIndexInArray(array, food);
+    if (index !== -1) {
+        array[index].amountInCart = food.amountInCart;
+    }
+};
+
+function addToCartIfNotExists(cart, food) {
+    if (!cart.some(item => item.id === food.id)) {
+        cart.push(food);
+    }
+};
+
+function updateAmountInFoodCategories(food) {
+    for (let i = 0; i < foodCategories.length; i++) {
+        let category = foodCategories[i];
+        let index = findObjectIndexInArray(category.foods, food);
+        if (index !== -1) {
+            category.foods[index].amountInCart = food.amountInCart;
+            break;
+        }
+    }
+};
+
+function removeFromArray(array, index) {
+    array[index].amountInCart = 0;
+    array.splice(index, 1);
+    if(array === wishlist) {
+        openWishlist();
+    } else if(array === recentOrders) {
+        openRecentOrders('recent');
+    }
+};
+
+function changeWishlistAndHomeLogo(window) {
+    let openWishlistLogoRef = document.getElementById('wishlist_logo');
+    let openHomeLogoRef = document.getElementById('home_logo')
+    if (window === 'home') {
+        openWishlistLogoRef.classList.remove('d__none');
+        openHomeLogoRef.classList.add('d__none');
+    } else if (window === 'wishlist') {
+        openWishlistLogoRef.classList.add('d__none');
+        openHomeLogoRef.classList.remove('d__none');
+    }
 };
