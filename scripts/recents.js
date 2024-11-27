@@ -1,7 +1,7 @@
 let recentOrders = [];
 
 
-function openRecentOrders(id) {
+function openRecentOrders(id){
     renderCategories();
     removeSelectedStyle();
     changeNavBorderStyling(id);
@@ -35,7 +35,9 @@ function moveRecentOrdersToCart(indexRecentOrders) {
     updateAmount(cart, currentFood);
     updateAmountInFoodCategories(currentFood); 
     saveToLocalStorage();
-    renderCart();
+    if(mobileMode === false) {
+        renderCart();
+    }
 };
 
 

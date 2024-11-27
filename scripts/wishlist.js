@@ -2,10 +2,15 @@ let windows = ["standard", "wishlist"];
 let wishlist = [];
 
 function openWishlist() {
+    renderFoundation();
+    currentWindow = 'wishlist';
     changeWishlistAndHomeLogo('wishlist');
     changeHeader('wishlist');
     renderWishlistStructure();
     renderWishlistContent();
+    if(mobileMode === false) {
+        renderCart();
+    }
 };
 
 function renderWishlistStructure() {
@@ -50,7 +55,9 @@ function moveWishlistFoodToCart(indexWishlist) {
     updateAmount(cart, currentFood);
     updateAmountInFoodCategories(currentFood);
     saveToLocalStorage();
-    renderCart();
+    if(mobileMode === false) {
+        renderCart();
+    }
 };
 
 

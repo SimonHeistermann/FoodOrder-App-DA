@@ -33,7 +33,11 @@ function deleteItemFrom(index, from) {
     updateAmount(wishlist, from[index]);
     updateAmount(recentOrders, from[index]);
     saveToLocalStorage();
-    renderCart();
+    if(mobileMode === false) {
+        renderCart();
+    } else if (mobileMode === true) {
+        renderMobileCart();
+    }
 };
 
 function clearItems(location) {
@@ -50,7 +54,11 @@ function clearItems(location) {
     }
     location.length = 0;
     saveToLocalStorage();
-    renderCart();
+    if(mobileMode === false) {
+        renderCart();
+    } else if (mobileMode === true) {
+        renderMobileCart();
+    }
 };
 
 function changeNavBorderStyling(id) {
@@ -167,16 +175,53 @@ function addOpenCartButton(contentRef) {
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
-    let backToTopButton = document.getElementById("totop_button");
-    let width = window.innerWidth;
-    if ((document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) && width <= 1025) {
-        backToTopButton.style.display = "block";
-    } else {
-        backToTopButton.style.display = "none";
+    if(mobileCart === 'off') {
+        let backToTopButton = document.getElementById("totop_button");
+        let width = window.innerWidth;
+        if ((document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) && width <= 1025) {
+            backToTopButton.style.display = "block";
+        } else {
+            backToTopButton.style.display = "none";
+        }
     }
 };
 
 function backToTop() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
+};
+
+function updateLayout() {
+    let width = window.innerWidth;
+    if (width <= 1025) {
+        mobileMode = true;
+    } else if ( width > 1025) {
+        mobileMode = false;
+    }
+};
+
+document.addEventListener("DOMContentLoaded", function() {
+    window.addEventListener("resize", renderUpdatedLayout);
+    renderUpdatedLayout();
+});
+
+function renderUpdatedLayout() {
+    getFromLocalStorage();
+    if (document.getElementById('content_right')) {
+        updateLayout();
+        if (mobileMode === false) {
+            renderCart();
+        } else if(mobileMode === true) {
+            scrollFunction();
+        }
+    }
+};
+
+function changeIcon(window) {
+    let cartLogoRef = document.getElementById('cart_logo');
+    cartLogoRef.classList.add('d__none');
+    let homeLogoRef = document.getElementById('home2_logo');
+    homeLogoRef.classList.add('d__none');
+    let logoRef = document.getElementById(window + '_logo');
+    logoRef.classList.remove('d__none');
 };

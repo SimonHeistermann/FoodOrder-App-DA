@@ -1,15 +1,38 @@
 let currentCategory = "Burger";
+let currentWindow = 'standard'
+let mobileMode;
 
 function init() {
+    renderFoundation();
+    currentWindow = 'standard';
     getFromLocalStorage();
     generateObjectIds();
+    updateLayout();
     changeWishlistAndHomeLogo('home');
     changeHeader('standard');
     renderStandardStructure();
     renderCategories();
     renderStandardPreview();
-    renderCart();
+    if(mobileMode === false) {
+        renderCart();
+    }
 };
+
+function openHome() {
+    renderFoundation();
+    currentWindow = 'standard';
+    getFromLocalStorage();
+    generateObjectIds();
+    updateLayout();
+    changeWishlistAndHomeLogo('home');
+    changeIcon('cart');
+    renderStandardStructure();
+    renderCategories();
+    renderStandardPreview();
+    if(mobileMode === false) {
+        renderCart();
+    }
+}
 
 function generateObjectIds() {
     foodCategories.forEach(function(category, categoryIndex) {
@@ -18,6 +41,12 @@ function generateObjectIds() {
         });
     });
     saveToLocalStorage();
+};
+
+function renderFoundation() {
+    let structureRef = document.getElementById('main_content');
+    structureRef.innerHTML = "";
+    structureRef.innerHTML = renderHTMLStandardFoundation();
 };
 
 function renderCategories() {

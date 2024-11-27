@@ -18,13 +18,14 @@
     <link rel="stylesheet" type="text/css" href="./styles/assets.css">
 
     <script src="./scripts/db.js"></script>
+    <script src="./scripts/save.js"></script>
     <script src="./script.js"></script>
     <script src="./scripts/cart.js"></script>
     <script src="./scripts/recents.js"></script>
     <script src="./scripts/wishlist.js"></script>
+    <script src="./scripts/structure_templates.js"></script>
     <script src="./scripts/templates.js"></script>
     <script src="./scripts/assets.js"></script>
-    <script src="./scripts/save.js"></script>
 
 </head>
 <body onload="init()">
@@ -48,7 +49,8 @@
                     </button>
                     <button id="wishlist_logo" onclick="openWishlist()" class="openwhishlist__button"></button>
                     <button id="home_logo" onclick="init()" class="openhome__button d__none"></button>
-                    <button id="cart_logo" onclick="" class="opencart__button d__1025px"></button>
+                    <button id="cart_logo" onclick="openMobileCart()" class="opencart__button d__1025px"></button>
+                    <button id="home2_logo" onclick="openHome()" class="openhome__button d__none"></button>
                 </div>
             </div>
         </div>

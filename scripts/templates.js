@@ -70,90 +70,7 @@ function renderHTMLFood(indexCategory, indexFood) {
             </div>
             `
 };
-
-function renderHTMLCartStructure() {
-    return  `
-            <form name="shoppingcart" onsubmit="submitOrder(event)" class="shopping__cart" id="shopping_cart">
-                <div class="shoppingcart__content">
-                <div class="cart__header">
-                    <h2>Einkaufswagen</h2>
-                    <button onclick="clearItems(cart)" class="clearcart__button">leeren</button>
-                </div>
-                <div class="cart__container" id="cartitems_container">
-                </div>
-                <div class="cart__bottom">
-                    <div class="payment__section">
-                        <div class="payment__container">
-                            <h4>Zusammenfassung</h4>
-                            <div class="payment__sums">
-                                <div class="paymentsum__box">
-                                    <span>Nettosumme:</span>
-                                    <span>${replaceDotWithComma(nettoSum.toFixed(2))}€</span>
-                                </div>
-                                <div class="paymentsum__box">
-                                    <span>MwSt.(19%):</span>
-                                    <span>${replaceDotWithComma((subTotalSum * 0.19).toFixed(2))}€</span>
-                                </div>
-                                <div class="paymentsum__box">
-                                    <span>Zwischensumme:</span>
-                                    <span>${replaceDotWithComma(subTotalSum.toFixed(2))}€</span>
-                                </div>
-                                    <div class="deliverycost__chooser">
-                                        <button onclick="toggleDeliveryCost(event, true)" class="delivery__button ${delivered ? 'deliverybutton__selected' : ''}">
-                                            <span class="tooltip__delivery ${delivered ? 'display__tooltip' : ''}">Liefern</span>
-                                        </button>
-                                        <button onclick="toggleDeliveryCost(event, false)" class="takehome__button ${delivered ? '' : 'takehomebutton__selected'}">
-                                            <span class="tooltip__takehome ${delivered ? '' : 'display__tooltip'}">Abholen</span>
-                                        </button>
-                                    </div>
-                                <div class="paymentsum__box">
-                                    <span>Lieferkosten:</span>
-                                    <span>${replaceDotWithComma(deliveryCost.toFixed(2))}€</span>
-                                </div>
-                                <div class="giftcode__container">
-                                    <label>Gutscheincode:</label>
-                                    <input onkeydown="checkGiftCode(event)" id="giftcode" maxlength="12" type="text" value="" placeholder="..."></input>
-                                </div>
-                                <div class="gift__sum ${displayErorrGift ? 'giftsum__errormessage' : ''}">
-                                    <span class="${displayErorrGift ? '' : 'd__none'}">Falscher Gutscheincode!</span>
-                                    <span>-${replaceDotWithComma(giftValue.toFixed(2))}€</span>
-                                </div>
-                            </div>
-                            <div class="completesum__container">
-                                <div class="payment__seperator"></div>
-                                <div class="complete__sum">
-                                    <span>Gesamtsumme:</span>
-                                    <span>${replaceDotWithComma(totalSum.toFixed(2))}€</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="paymentservice__section">
-                            <div class="paymentservice__header">
-                                 <h4>Bezahlmethoden</h4>
-                                 <span class="paymenterror__message d__none" id="payment_errormessage">Bitte wählen Sie eine aus!</span>
-                            </div>
-                            <div class="paymentservices__container">
-                                <div onclick="toggleBorderOnPayment('apple_pay')" class="payment__service" id="apple_pay">
-                                    <img src="./assets/icons/apple_pay_icon.png" alt="Apple Pay">
-                                </div>
-                                <div onclick="toggleBorderOnPayment('mastercard')" class="payment__service" id="mastercard">
-                                    <img src="./assets/icons/mastercard_icon.png" alt="Mastercard">
-                                </div>
-                                <div onclick="toggleBorderOnPayment('paypal')" class="payment__service" id="paypal">
-                                    <img src="./assets/icons/paypal_icon.png" alt="Paypal">
-                                </div>
-                                <div onclick="toggleBorderOnPayment('google_pay')" class="payment__service" id="google_pay">
-                                    <img src="./assets/icons/google_pay_icon.png" alt="Google Pay">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="submit" class="completeorder__button">Bestellung abschließen</button>
-                </div>
-            </form>
-            `
-};
-
+ 
 function renderHTMLCartItems(indexCart) {
     return  `
              <div class="cart__item">
@@ -167,7 +84,7 @@ function renderHTMLCartItems(indexCart) {
                     <div class="cartitemcontent__container">
                         <div class="adjust__quantity">
                             <button onclick="changeItemAmount(${indexCart}, 'minus')" class="minus__button"></button>
-                            <input id="amountincart" onkeydown="changeItemAmountWithInput(event, ${indexCart})" required class="quantatiy__input" min="1" type="number" value="${cart[indexCart].amountInCart}">
+                            <input id="amountincart" onkeydown="changeItemAmountWithInput(event, ${indexCart})" required class="quantatiy__input" min="1" max="48" type="number" value="${cart[indexCart].amountInCart}">
                             <button onclick="changeItemAmount(${indexCart}, 'plus')" class="plus__button"></button>
                         </div>
                         <span class="cartitem__price">${replaceDotWithComma(sumOfRowInCart(cart[indexCart].currentPrice, cart[indexCart].amountInCart))}€</span>
@@ -241,15 +158,6 @@ function renderHTMLNotSuccessfulOrder() {
             `
 };
 
-function renderHTMLWishlistStructure() {
-    return  `
-            <div class="food__section" id="food_section">
-            </div>
-            
-            `
-};
-
-
 function renderHTMLWishlistFood(indexWishlist) {
     return  `
         <div class="food__container">
@@ -286,32 +194,37 @@ function renderHTMLWishlistNoContent() {
             `
 };
 
-function renderHTMLStandardStructure() {
-    return  `
-            <div class="categories__container" id="categories_container">
-            </div>
-                <nav>
-                    <div class="nav__container">
-                        <button class="navbutton__open" id="nav_popular" onclick="openPopularFoods('popular')"><h2>Beliebt</h2></button>
-                        <button class="" id="nav_recent" onclick="openRecentOrders('recent')"><h2>Zuletzt</h2></button>
-                    </div>
-                    <button onclick="orderTempCartFoods()" id="orderselected_button" class="orderselected__button d__none">
-                        Alles Bestellen
-                    </button>
-                </nav>
-                <div class="food__section" id="food_section">
-                </div>
-            `
-};
-
 function renderHTMLOpenCartButton() {
     return  `
             <div class="opencartbutton__container">
-                <button onclick="openCart()" class="opencartonbottom__button">
+                <button onclick="openMobileCart()" class="opencartonbottom__button">
                     Warenkorb
                     <img class="cart__icon" src="../assets/icons/basket_icon_outlined_white.png" alt="Einkaufskorb">
                 </button>
             </div>
             `
-}
+};
 
+function renderHTMLMobileCartItems(indexCart) {
+    return  `
+            <div class="cart__itemmobile">
+                    <div class="cartitem__img">
+                        <img src="${cart[indexCart].img}" alt="${cart[indexCart].alternativeForImg}">
+                    </div>
+                    <div class="cartitem__contentmobile">
+                        <div class="cartitem__headermobile">
+                            <h3>${cart[indexCart].name}</h3>
+                        </div>
+                        <div class="cartitemcontent__containermobile">
+                            <div class="adjust__quantitymobile">
+                                <button onclick="changeItemAmount(${indexCart}, 'minus')" class="minus__button"></button>
+                                <input id="amountincart" onkeydown="changeItemAmountWithInput(event, ${indexCart})" required class="quantatiy__inputmobile" min="1" max="48" type="number" value="${cart[indexCart].amountInCart}">
+                                <button onclick="changeItemAmount(${indexCart}, 'plus')" class="plus__button"></button>
+                            </div>
+                            <span class="cartitem__pricemobile">${replaceDotWithComma(sumOfRowInCart(cart[indexCart].currentPrice, cart[indexCart].amountInCart))}€</span>
+                            <button onclick="deleteItemFrom(${indexCart}, cart)" class="delete__button"></button>
+                        </div>
+                    </div>
+                </div>
+            `
+};

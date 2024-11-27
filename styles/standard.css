@@ -82,7 +82,11 @@ input[type=number]::-webkit-outer-spin-button {
 @media(max-width: 600px) {
     header {
         min-height: 211px;
-    } 
+    }
+
+    h3 {
+        font-size: 18px;
+    }
 }
 
 @media(max-width: 450px) {

@@ -7,6 +7,7 @@ let delivered = true;
 let giftValue = 0;
 let displayErorrGift = false;
 let totalSum = 0;
+let mobileCart = 'off';
 
 
 function renderCart() {
@@ -14,7 +15,6 @@ function renderCart() {
     let structureRef = document.getElementById('content_right');
     structureRef.innerHTML = "";
     structureRef.innerHTML = renderHTMLCartStructure();
-
     let cartItemContainerRef = document.getElementById('cartitems_container');
     cartItemContainerRef.innerHTML = "";
     if (cart.length > 0) {
@@ -42,7 +42,9 @@ function moveFoodToCart(indexCategory, indexFood) {
     updateAmount(cart, currentFood);
     updateAmountInFoodCategories(currentFood); 
     saveToLocalStorage();
-    renderCart();
+    if(mobileMode === false) {
+        renderCart();
+    }
 };
 
 function sumOfRowInCart(onePiecePrice, amountInCart) {
@@ -72,7 +74,11 @@ function toggleDeliveryCost(event, delivery) {
         delivered = false
         deliveryCost = 0;
     }
-    renderCart();
+    if(mobileMode === false) {
+        renderCart();
+    } else if (mobileMode === true) {
+        renderMobileCart();
+    }
 };
 
 function checkGiftCode(event) {
@@ -83,7 +89,11 @@ function checkGiftCode(event) {
         let giftStatus = { validCode: false};
         checkingGiftCode(giftCode, giftStatus);
         displayGiftError(giftStatus.validCode)
-        renderCart();
+        if(mobileMode === false) {
+            renderCart();
+        } else if (mobileMode === true) {
+            renderMobileCart();
+        }
     }
 };
 
@@ -133,7 +143,11 @@ function changeItemAmount(indexCart, mathOp) {
         reduceItemAmount(indexCart);
     }
     saveToLocalStorage();
-    renderCart();
+    if(mobileMode === false) {
+        renderCart();
+    } else if (mobileMode === true) {
+        renderMobileCart();
+    }
 };
 
 
@@ -178,13 +192,16 @@ function changeItemAmountWithInput(event, indexCart) {
         updateAmount(wishlist, cart[indexCart]);
         updateAmount(recentOrders, cart[indexCart]);
         saveToLocalStorage();
-        renderCart();
+        if(mobileMode === false) {
+            renderCart();
+        } else if (mobileMode === true) {
+            renderMobileCart();
+        }
     }
 };
 
 function submitOrder(event) {
     event.preventDefault();
-    let cartItemContainerRef = document.getElementById('cartitems_container');
     if(cart.length > 0) {
         if(checkForPaymentService()) {
             confirmOrder();
@@ -192,10 +209,18 @@ function submitOrder(event) {
         toggleDisplayPaymentError(true);
         }
     } else {
-        cartItemContainerRef.innerHTML = "";
-        cartItemContainerRef.innerHTML += renderHTMLNotSuccessfulOrder();
+        if(mobileMode === true) {
+            let cartItemContainerRef = document.getElementById('cartitems_containermobile')
+            cartItemContainerRef.innerHTML = "";
+            cartItemContainerRef.innerHTML += renderHTMLNotSuccessfulOrder();
+        } else if (mobileMode === false) {
+            let cartItemContainerRef = document.getElementById('cartitems_container')
+            cartItemContainerRef.innerHTML = "";
+            cartItemContainerRef.innerHTML += renderHTMLNotSuccessfulOrder();
+        }
         removeBorderOnPayment();
     }
+    backToTop();
 };
 
 function checkForPaymentService() {
@@ -210,6 +235,7 @@ function checkForPaymentService() {
 function confirmOrder() {
     toggleDisplayPaymentError(false);
     pushRecentOrderInRecentOrders();
+    giftValue = 0;
     clearItems(cart);
     saveToLocalStorage();
     renderSuccessfulOrder();
@@ -229,9 +255,15 @@ function pushRecentOrderInRecentOrders() {
 };
 
 function renderSuccessfulOrder() {
-    let cartItemContainerRef = document.getElementById('cartitems_container')
-    cartItemContainerRef.innerHTML = "";
-    cartItemContainerRef.innerHTML += renderHTMLSuccessfulOrder();
+    if(mobileMode === false) {
+        let cartItemContainerRef = document.getElementById('cartitems_container')
+        cartItemContainerRef.innerHTML = "";
+        cartItemContainerRef.innerHTML += renderHTMLSuccessfulOrder();
+    } else if (mobileMode === true) {
+        let cartItemContainerRef = document.getElementById('cartitems_containermobile')
+        cartItemContainerRef.innerHTML = "";
+        cartItemContainerRef.innerHTML += renderHTMLSuccessfulOrder();
+    }
     removeBorderOnPayment();
 };
 
@@ -282,7 +314,9 @@ function orderTempCartFoods() {
         let orderSelectedButtonRef = document.getElementById('orderselected_button');
         orderSelectedButtonRef.classList.add('d__none');
         saveToLocalStorage();
-        renderCart();
+        if(mobileMode === false) {
+            renderCart();
+        }
     }
 };
 
@@ -301,7 +335,6 @@ function moveTempCartInCart() {
         updateAmount(cart, tempCartFood);
         updateAmountInFoodCategories(tempCartFood);
         saveToLocalStorage();
-        renderCart();
     }
 };
 
@@ -314,6 +347,30 @@ function removeAllFoodsFromTempCart() {
         }
     }
     tempCart.length = 0;
+};
+
+function openMobileCart() {
+    if(mobileMode === true) {
+        mobileCart = 'on';
+        renderMobileCart();
+        changeIcon('home2');
+    }
+};
+
+function renderMobileCart() {
+    sumCalculator();
+    let structureRef = document.getElementById('main_content');
+    structureRef.innerHTML = "";
+    structureRef.innerHTML = renderHTMLMobileCartStructure();
+    let cartItemContainerRef = document.getElementById('cartitems_containermobile');
+    cartItemContainerRef.innerHTML = "";
+    if (cart.length > 0) {
+        for (let indexCart = 0; indexCart < cart.length; indexCart++) {
+            cartItemContainerRef.innerHTML += renderHTMLMobileCartItems(indexCart);
+        }
+    } else {
+        cartItemContainerRef.innerHTML += renderHTMLNoCartItems();
+    }
 };
 
 

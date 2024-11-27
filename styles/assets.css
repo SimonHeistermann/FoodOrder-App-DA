@@ -307,4 +307,11 @@
     .wishlist__button, .order__button {
         font-size: 12px;
     }
+
+    .tooltip__takehome {
+        left: 60px;
+    }
+    .tooltip__delivery {
+        left: 120px;
+    }
 }
