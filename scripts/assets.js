@@ -156,3 +156,27 @@ function changeWishlistAndHomeLogo(window) {
         openHomeLogoRef.classList.remove('d__none');
     }
 };
+
+function addOpenCartButton(contentRef) {
+    let width = window.innerWidth;
+    if(width <= 1025) {
+        contentRef.innerHTML += renderHTMLOpenCartButton();
+    }
+};
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    let backToTopButton = document.getElementById("totop_button");
+    let width = window.innerWidth;
+    if ((document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) && width <= 1025) {
+        backToTopButton.style.display = "block";
+    } else {
+        backToTopButton.style.display = "none";
+    }
+};
+
+function backToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+};

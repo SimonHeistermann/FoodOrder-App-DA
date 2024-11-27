@@ -67,9 +67,34 @@
     font-size: 16px;
 }
 
+.d__1025px {
+    display: none;
+}
+
+.totop__button {
+    display: none;
+    position: fixed;
+    bottom: 120px;
+    right: 30px;
+    background-color: white;
+    cursor: pointer;
+    padding: 20px 20px;
+    background-image: url("./assets/icons/arrow_upwards_icon.png");
+    background-size: contain;
+    border-radius: 50%;
+    width: 0;
+    border: 0;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.13));
+}
+
+.totop__button:hover {
+    background-color: rgba(255, 255, 255, 0.772);
+}
+
 .content__container {
     margin-top: 16px;
     display: flex;
+    flex-direction: row;
     gap: 32px;
 }
 
@@ -77,12 +102,82 @@
     width: 75%;
 }
 
-@media(max-width: 700px) {
+@media(max-width: 1025px) {
     .header__container {
         flex-direction: column;
         gap: 16px;
         padding: 16px 0px;
+        width: min(100%, 1920px);
+        margin-inline: auto;
+        padding-inline: clamp(16px, 6vw, 64px);
     }
 
-    
+    .d__1025px {
+        display: block;
+    }
+
+    .content__left {
+        width: 95%;
+    }
+
+    .content__right {
+        display: none;
+    }
+}
+
+@media(max-width: 750px) {
+    .headerbox__right {
+        gap: 16px;
+    }
+
+    .content__left {
+        width: 100%;
+    }
+}
+
+@media(max-width: 600px) {
+    .header__container {
+        align-items: flex-start;
+        justify-content: space-between;
+        height: 211px;
+    }
+
+    .headerbutton__box {
+        position: absolute;
+        top: 16px;
+        right: clamp(16px, 6vw, 64px);
+        flex-direction: column-reverse;
+        gap: 8px;
+    }
+
+    .searchbar__container {
+        margin-right: 109px;
+    }
+}
+
+@media(max-width: 450px) {
+    .header__container {
+        height: 192px;
+        gap: 12px;
+    }
+
+    .header__logo {
+        height: 100px;
+        width: 100px;
+    }
+
+    .searchbar__container {
+        height: 48px;
+    }
+
+    .header__headline {
+        display: none;
+    }
+}
+
+@media(max-width: 400px) {
+    .searchbar__container {
+        gap: 4px;
+        margin-right: 101px;
+    }
 }

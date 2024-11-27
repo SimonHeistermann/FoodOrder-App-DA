@@ -16,6 +16,7 @@ function renderRecentOrders() {
         for (let indexRecentOrders= 0; indexRecentOrders < recentOrders.length; indexRecentOrders++) {
             contentRef.innerHTML += renderHTMLRecentOrders(indexRecentOrders);
         }
+        addOpenCartButton(contentRef);
     } else {
         contentRef.innerHTML += renderHTMLNoRecentOrders();
     }

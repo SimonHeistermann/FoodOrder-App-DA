@@ -183,3 +183,45 @@ nav button:hover, nav button:active {
     align-items: center;
     gap: 16px;
 }
+
+.opencartbutton__container {
+    width: 100%;
+    margin-top: 32px;
+    display: none;
+}
+
+@media(max-width: 1025px) {
+    .food__container {
+        width: 48%;
+    }
+
+    .opencartbutton__container {
+        display: block;
+    }
+}
+
+@media(max-width: 750px) {
+    .food__container {
+        width: 100%;
+    }
+
+    .food__section {
+        padding-right: 64px;
+    }
+}
+ 
+@media(max-width: 400px) {
+    .foodcontainer__img img {
+        height: 120px;
+        width: 120px;
+    }
+
+    .food__checkbox {
+        top: 30px;
+        left: 30px;
+    }
+
+    .foodbutton__container {
+        gap: 8px;
+    }
+}

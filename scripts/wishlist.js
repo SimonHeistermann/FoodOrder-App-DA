@@ -20,7 +20,8 @@ function renderWishlistContent() {
     if (wishlist.length > 0) {
         for (let indexWishlist = 0; indexWishlist < wishlist.length; indexWishlist++) {
             contentRef.innerHTML += renderHTMLWishlistFood(indexWishlist);
-         }
+        }
+        addOpenCartButton(contentRef);
     } else {
         contentRef.innerHTML += renderHTMLWishlistNoContent();
     }

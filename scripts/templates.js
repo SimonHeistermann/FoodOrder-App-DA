@@ -243,10 +243,9 @@ function renderHTMLNotSuccessfulOrder() {
 
 function renderHTMLWishlistStructure() {
     return  `
-            <div class="categories__container" id="categories_container">
-                <div class="food__section" id="food_section">
-                </div>
+            <div class="food__section" id="food_section">
             </div>
+            
             `
 };
 
@@ -304,4 +303,15 @@ function renderHTMLStandardStructure() {
                 </div>
             `
 };
+
+function renderHTMLOpenCartButton() {
+    return  `
+            <div class="opencartbutton__container">
+                <button onclick="openCart()" class="opencartonbottom__button">
+                    Warenkorb
+                    <img class="cart__icon" src="../assets/icons/basket_icon_outlined_white.png" alt="Einkaufskorb">
+                </button>
+            </div>
+            `
+}
 

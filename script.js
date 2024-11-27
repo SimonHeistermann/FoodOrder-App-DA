@@ -36,6 +36,7 @@ function renderStandardPreview() {
     for (let indexPreview = 0; indexPreview < foodCategories[4].foods.length; indexPreview++) {
         contentRef.innerHTML += renderHTMLStandardPreview(indexPreview);
     }
+    addOpenCartButton(contentRef);
     styleSelectedCategory();
 };
 
@@ -45,6 +46,7 @@ function renderFood(indexCategory) {
     for (let indexFood= 0; indexFood < foodCategories[indexCategory].foods.length; indexFood++) {
         contentRef.innerHTML += renderHTMLFood(indexCategory, indexFood);
     }
+    addOpenCartButton(contentRef);
     currentCategory = foodCategories[indexCategory].name;
     styleSelectedCategory();
 };
