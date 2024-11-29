@@ -27,7 +27,7 @@ function renderHTMLStandardPreview(indexPreview) {
                             <span class="prev__price">€${replaceDotWithComma(foodCategories[4].foods[indexPreview].prevPrice)}</span>
                         </div>
                         <div class="rating__container">
-                            <img src="../assets/icons/star_icon.png" alt="Stern">
+                            <img src="./assets/icons/star_icon.png" alt="Stern">
                             ${foodCategories[4].foods[indexPreview].rating}/5
                         </div>
                     </div>
@@ -58,7 +58,7 @@ function renderHTMLFood(indexCategory, indexFood) {
                             <span class="prev__price">€${replaceDotWithComma(foodCategories[indexCategory].foods[indexFood].prevPrice)}</span>
                         </div>
                         <div class="rating__container">
-                            <img src="../assets/icons/star_icon.png" alt="Stern">
+                            <img src="./assets/icons/star_icon.png" alt="Stern">
                             ${foodCategories[indexCategory].foods[indexFood].rating}/5
                         </div>
                     </div>
@@ -127,7 +127,7 @@ function renderHTMLRecentOrders(indexRecentOrders) {
                             <span class="prev__price">€${replaceDotWithComma(recentOrders[indexRecentOrders].prevPrice)}</span>
                         </div>
                         <div class="rating__container">
-                            <img src="../assets/icons/star_icon.png" alt="Stern">
+                            <img src="./assets/icons/star_icon.png" alt="Stern">
                             ${recentOrders[indexRecentOrders].rating}/5
                         </div>
                     </div>
@@ -172,7 +172,7 @@ function renderHTMLWishlistFood(indexWishlist) {
                             <span class="prev__price">€${replaceDotWithComma(wishlist[indexWishlist].prevPrice)}</span>
                         </div>
                         <div class="rating__container">
-                            <img src="../assets/icons/star_icon.png" alt="Stern">
+                            <img src="./assets/icons/star_icon.png" alt="Stern">
                             ${wishlist[indexWishlist].rating}/5
                         </div>
                     </div>
@@ -199,7 +199,7 @@ function renderHTMLOpenCartButton() {
             <div class="opencartbutton__container">
                 <button onclick="openMobileCart()" class="opencartonbottom__button">
                     Warenkorb
-                    <img class="cart__icon" src="../assets/icons/basket_icon_outlined_white.png" alt="Einkaufskorb">
+                    <img class="cart__icon" src="./assets/icons/basket_icon_outlined_white.png" alt="Einkaufskorb">
                 </button>
             </div>
             `
@@ -228,3 +228,37 @@ function renderHTMLMobileCartItems(indexCart) {
                 </div>
             `
 };
+
+function renderHTMLFilteredFood(filteredFoodItems, indexFilteredFood) {
+    return  `
+            <div class="food__container">
+                <div class="foodcontainer__img">
+                    <img src="${filteredFoodItems[indexFilteredFood].img}" alt="${filteredFoodItems[indexFilteredFood].alternativeForImg}">
+                </div>
+                <div class="foodcontainer__content">
+                    <h2>${filteredFoodItems[indexFilteredFood].name}</h2>
+                    <div class="priceandrating__container">
+                        <div class="price__container">
+                            <span class="current__price">€${replaceDotWithComma(filteredFoodItems[indexFilteredFood].currentPrice)}</span>
+                            <span class="prev__price">€${replaceDotWithComma(filteredFoodItems[indexFilteredFood].prevPrice)}</span>
+                        </div>
+                        <div class="rating__container">
+                            <img src="./assets/icons/star_icon.png" alt="Stern">
+                            ${filteredFoodItems[indexFilteredFood].rating}/5
+                        </div>
+                    </div>
+                </div>
+                <div class="foodbutton__container">
+                    <button onclick="copyFilteredFoodToWishlist(filteredFoodItems, ${indexFilteredFood})" class="wishlist__button">Wunschliste</button>
+                    <button onclick="moveFilteredFoodToCart(filteredFoodItems, ${indexFilteredFood})" class="order__button">Bestellen</button>
+                </div>
+            </div>
+            `
+};
+
+function renderHTMLNoFilteredFoods() {
+    return  `
+            <h2>Keine Ergebnisse...</h2>
+            `
+};
+ 

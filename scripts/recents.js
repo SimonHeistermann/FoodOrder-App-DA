@@ -23,21 +23,7 @@ function renderRecentOrders() {
 };
 
 function moveRecentOrdersToCart(indexRecentOrders) {
-    let currentFood = recentOrders[indexRecentOrders];
-    if (!currentFood) return;
-    addToCartIfNotExists(cart, currentFood);
-    if (currentFood.amountInCart === 0) {
-        currentFood.amountInCart = 1;
-    } else {
-        currentFood.amountInCart += 1;
-    }
-    updateAmount(wishlist, currentFood);
-    updateAmount(cart, currentFood);
-    updateAmountInFoodCategories(currentFood); 
-    saveToLocalStorage();
-    if(mobileMode === false) {
-        renderCart();
-    }
+    moveItemToCart(recentOrders, indexRecentOrders, [wishlist]);
 };
 
 

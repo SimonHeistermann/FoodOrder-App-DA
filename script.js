@@ -13,6 +13,7 @@ function init() {
     renderStandardStructure();
     renderCategories();
     renderStandardPreview();
+    initFilterContainer();
     if(mobileMode === false) {
         renderCart();
     }
@@ -29,10 +30,11 @@ function openHome() {
     renderStandardStructure();
     renderCategories();
     renderStandardPreview();
+    initFilterContainer();
     if(mobileMode === false) {
         renderCart();
     }
-}
+};
 
 function generateObjectIds() {
     foodCategories.forEach(function(category, categoryIndex) {

@@ -1,7 +1,7 @@
 let foodCategories = [
    {
         "name": "Salat",
-        "icon": "../assets/icons/salad_icon.png",
+        "icon": "./assets/icons/salad_icon.png",
         "alternativeForIcon": "Salat",
         "foods": [
             {
@@ -9,7 +9,7 @@ let foodCategories = [
                 "currentPrice": 6,
                 "prevPrice": 7.99,
                 "rating": 4,
-                "img": "../assets/img/seasonal_salad.png",
+                "img": "./assets/img/seasonal_salad.png",
                 "alternativeForImg": "Salat der Saison",
                 "selected": false,
                 "amountInCart": 0
@@ -19,7 +19,7 @@ let foodCategories = [
                 "currentPrice": 7,
                 "prevPrice": 8.99,
                 "rating": 4.5,
-                "img": "../assets/img/mixed_salad.png",
+                "img": "./assets/img/mixed_salad.png",
                 "alternativeForImg": "Gemischter Salat",
                 "selected": false,
                 "amountInCart": 0
@@ -29,7 +29,7 @@ let foodCategories = [
                 "currentPrice": 7,
                 "prevPrice": 8.99,
                 "rating": 4.3,
-                "img": "../assets/img/egg_salad.png",
+                "img": "./assets/img/egg_salad.png",
                 "alternativeForImg": "Eier Salat",
                 "selected": false,
                 "amountInCart": 0
@@ -39,7 +39,7 @@ let foodCategories = [
                 "currentPrice": 6,
                 "prevPrice": 8.99,
                 "rating": 4.1,
-                "img": "../assets/img/tomato_morzarella.png",
+                "img": "./assets/img/tomato_morzarella.png",
                 "alternativeForImg": "Tomate Morzarella",
                 "selected": false,
                 "amountInCart": 0
@@ -49,7 +49,7 @@ let foodCategories = [
                 "currentPrice": 8,
                 "prevPrice": 8.99,
                 "rating": 4.6,
-                "img": "../assets/img/fruit_platter.png",
+                "img": "./assets/img/fruit_platter.png",
                 "alternativeForImg": "Früchteplatte",
                 "selected": false,
                 "amountInCart": 0
@@ -58,7 +58,7 @@ let foodCategories = [
     },
     {
         "name": "Pommes",
-        "icon": "../assets/icons/fries_icon.png",
+        "icon": "./assets/icons/fries_icon.png",
         "alternativeForIcon": "Pommes",
         "foods": [
             {
@@ -66,7 +66,7 @@ let foodCategories = [
                 "currentPrice": 4,
                 "prevPrice": 5.99,
                 "rating": 4.8,
-                "img": "../assets/img/french_fries.jpg",
+                "img": "./assets/img/french_fries.jpg",
                 "alternativeForImg": "Pommes",
                 "selected": false,
                 "amountInCart": 0 
@@ -76,7 +76,7 @@ let foodCategories = [
                 "currentPrice": 5,
                 "prevPrice": 6.99,
                 "rating": 4.7,
-                "img": "../assets/img/sweet_potato_fries.jpg",
+                "img": "./assets/img/sweet_potato_fries.jpg",
                 "alternativeForImg": "Süßkartoffelpommes",
                 "selected": false,
                 "amountInCart": 0 
@@ -85,7 +85,7 @@ let foodCategories = [
     },
     {
         "name": "Reis",
-        "icon": "../assets/icons/rice_icon.png",
+        "icon": "./assets/icons/rice_icon.png",
         "alternativeForIcon": "Reis",
         "foods": [
             {
@@ -93,7 +93,7 @@ let foodCategories = [
                 "currentPrice": 4,
                 "prevPrice": 5.99,
                 "rating": 4.1,
-                "img": "../assets/img/white_rice.png",
+                "img": "./assets/img/white_rice.png",
                 "alternativeForImg": "Weißer Reis",
                 "selected": false,
                 "amountInCart": 0 
@@ -103,7 +103,7 @@ let foodCategories = [
                 "currentPrice": 5,
                 "prevPrice": 6.99,
                 "rating": 4.7,
-                "img": "../assets/img/curry_rice.png",
+                "img": "./assets/img/curry_rice.png",
                 "alternativeForImg": "Curry Reis",
                 "selected": false,
                 "amountInCart": 0 
@@ -112,7 +112,7 @@ let foodCategories = [
     },
     {
         "name": "HotDog",
-        "icon": "../assets/icons/hot_dog_icon.png",
+        "icon": "./assets/icons/hot_dog_icon.png",
         "alternativeForIcon": "HotDog",
         "foods": [
             {
@@ -120,7 +120,7 @@ let foodCategories = [
                 "currentPrice": 5,
                 "prevPrice": 6.99,
                 "rating": 3.9,
-                "img": "../assets/img/hotdog.png",
+                "img": "./assets/img/hotdog.png",
                 "alternativeForImg": "HotDog",
                 "selected": false,
                 "amountInCart": 0 
@@ -129,7 +129,7 @@ let foodCategories = [
     },
     {
         "name": "Burger",
-        "icon": "../assets/icons/burger_icon.png",
+        "icon": "./assets/icons/burger_icon.png",
         "alternativeForIcon": "Burger",
         "foods": [
             {
@@ -137,7 +137,7 @@ let foodCategories = [
                 "currentPrice": 6,
                 "prevPrice": 7.99,
                 "rating": 4,
-                "img": "../assets/img/cheeseburger.png",
+                "img": "./assets/img/cheeseburger.png",
                 "alternativeForImg": "Cheeseburger",
                 "selected": false,
                 "amountInCart": 0
@@ -147,7 +147,7 @@ let foodCategories = [
                 "currentPrice": 7,
                 "prevPrice": 8.99,
                 "rating": 4.5,
-                "img": "../assets/img/bacon_cheeseburger.png",
+                "img": "./assets/img/bacon_cheeseburger.png",
                 "alternativeForImg": "Bacon Cheeseburger",
                 "selected": false,
                 "amountInCart": 0
@@ -157,7 +157,7 @@ let foodCategories = [
                 "currentPrice": 6,
                 "prevPrice": 7.99,
                 "rating": 3.7,
-                "img": "../assets/img/fish_burger.png",
+                "img": "./assets/img/fish_burger.png",
                 "alternativeForImg": "Fish Burger",
                 "selected": false,
                 "amountInCart": 0
@@ -167,7 +167,7 @@ let foodCategories = [
                 "currentPrice": 8,
                 "prevPrice": 10.99,
                 "rating": 4.8,
-                "img": "../assets/img/vegan_burger.png",
+                "img": "./assets/img/vegan_burger.png",
                 "alternativeForImg": "Vegan Burger",
                 "selected": false,
                 "amountInCart": 0
@@ -177,7 +177,7 @@ let foodCategories = [
                 "currentPrice": 9,
                 "prevPrice": 11.99,
                 "rating": 4.6,
-                "img": "../assets/img/double_cheeseburger.png",
+                "img": "./assets/img/double_cheeseburger.png",
                 "alternativeForImg": "Double Chesseburger",
                 "selected": false,
                 "amountInCart": 0
@@ -187,7 +187,7 @@ let foodCategories = [
                 "currentPrice": 10,
                 "prevPrice": 12.99,
                 "rating": 4.9,
-                "img": "../assets/img/double_bacon_cheeseburger.png",
+                "img": "./assets/img/double_bacon_cheeseburger.png",
                 "alternativeForImg": "Dobule Bacon Chesseburger",
                 "selected": false,
                 "amountInCart": 0
@@ -196,7 +196,7 @@ let foodCategories = [
     },
     {
         "name": "Pizza",
-        "icon": "../assets/icons/pizza_icon.png",
+        "icon": "./assets/icons/pizza_icon.png",
         "alternativeForIcon": "Pizza",
         "foods": [
             {
@@ -204,7 +204,7 @@ let foodCategories = [
                 "currentPrice": 10,
                 "prevPrice": 12.99,
                 "rating": 4.9,
-                "img": "../assets/img/pizza_margherita.png",
+                "img": "./assets/img/pizza_margherita.png",
                 "alternativeForImg": "Pizza Margherita",
                 "selected": false,
                 "amountInCart": 0
@@ -214,7 +214,7 @@ let foodCategories = [
                 "currentPrice": 11,
                 "prevPrice": 13.99,
                 "rating": 4.6,
-                "img": "../assets/img/pizza_salami.png",
+                "img": "./assets/img/pizza_salami.png",
                 "alternativeForImg": "Pizza Salami",
                 "selected": false,
                 "amountInCart": 0
@@ -224,7 +224,7 @@ let foodCategories = [
                 "currentPrice": 11,
                 "prevPrice": 13.99,
                 "rating": 3.7,
-                "img": "../assets/img/pizza_prosciutto.png",
+                "img": "./assets/img/pizza_prosciutto.png",
                 "alternativeForImg": "Pizza Prosciutto",
                 "selected": false,
                 "amountInCart": 0
@@ -234,7 +234,7 @@ let foodCategories = [
                 "currentPrice": 13,
                 "prevPrice": 15.99,
                 "rating": 4.2,
-                "img": "../assets/img/pizza_prosciutto_e_funghi.png",
+                "img": "./assets/img/pizza_prosciutto_e_funghi.png",
                 "alternativeForImg": "Pizza Prosciutto e Funghi",
                 "selected": false,
                 "amountInCart": 0
@@ -244,7 +244,7 @@ let foodCategories = [
                 "currentPrice": 14,
                 "prevPrice": 16.99,
                 "rating": 4.5,
-                "img": "../assets/img/pizza_special.png",
+                "img": "./assets/img/pizza_special.png",
                 "alternativeForImg": "Pizza Speciale",
                 "selected": false,
                 "amountInCart": 0
@@ -254,7 +254,7 @@ let foodCategories = [
                 "currentPrice": 12,
                 "prevPrice": 14.99,
                 "rating": 4.8,
-                "img": "../assets/img/pizza_morzarella.png",
+                "img": "./assets/img/pizza_morzarella.png",
                 "alternativeForImg": "Pizza Morzarella",
                 "selected": false,
                 "amountInCart": 0
@@ -264,7 +264,7 @@ let foodCategories = [
     },
     {
         "name": "Steak",
-        "icon": "../assets/icons/steak_icon.png",
+        "icon": "./assets/icons/steak_icon.png",
         "alternativeForIcon": "Steak",
         "foods": [
             {
@@ -272,7 +272,7 @@ let foodCategories = [
                 "currentPrice": 31,
                 "prevPrice": 34.99,
                 "rating": 4.6,
-                "img": "../assets/img/rumpsteak.png",
+                "img": "./assets/img/rumpsteak.png",
                 "alternativeForImg": "Rumpsteak mit Salat",
                 "selected": false,
                 "amountInCart": 0
@@ -282,7 +282,7 @@ let foodCategories = [
                 "currentPrice": 33,
                 "prevPrice": 37.99,
                 "rating": 4.7,
-                "img": "../assets/img/surfn_turf_bowl.png",
+                "img": "./assets/img/surfn_turf_bowl.png",
                 "alternativeForImg": "Surfn Turf Bowl",
                 "selected": false,
                 "amountInCart": 0
@@ -292,7 +292,7 @@ let foodCategories = [
                 "currentPrice": 32,
                 "prevPrice": 35.99,
                 "rating": 4.9,
-                "img": "../assets/img/t_bone_steaks.png",
+                "img": "./assets/img/t_bone_steaks.png",
                 "alternativeForImg": "T-Bone Steaks",
                 "selected": false,
                 "amountInCart": 0
@@ -301,7 +301,7 @@ let foodCategories = [
     },
     {
         "name": "Hünchen",
-        "icon": "../assets/icons/chicken_icon.png",
+        "icon": "./assets/icons/chicken_icon.png",
         "alternativeForIcon": "Hünchen",
         "foods": [
             {
@@ -309,7 +309,7 @@ let foodCategories = [
                 "currentPrice": 21,
                 "prevPrice": 23.99,
                 "rating": 4.3,
-                "img": "../assets/img/schnitzel.png",
+                "img": "./assets/img/schnitzel.png",
                 "alternativeForImg": "Schnitzel",
                 "selected": false,
                 "amountInCart": 0
@@ -319,7 +319,7 @@ let foodCategories = [
                 "currentPrice": 30,
                 "prevPrice": 41.99,
                 "rating": 4.9,
-                "img": "../assets/img/grill_platter.png",
+                "img": "./assets/img/grill_platter.png",
                 "alternativeForImg": "Hünchen Grillplatte",
                 "selected": false,
                 "amountInCart": 0
@@ -328,7 +328,7 @@ let foodCategories = [
     },
     {
         "name": "Donuts",
-        "icon": "../assets/icons/donut_icon.png",
+        "icon": "./assets/icons/donut_icon.png",
         "alternativeForIcon": "Donut",
         "foods": [
             {
@@ -336,7 +336,7 @@ let foodCategories = [
                 "currentPrice": 4,
                 "prevPrice": 5.99,
                 "rating": 4.7,
-                "img": "../assets/img/pink_donut.png",
+                "img": "./assets/img/pink_donut.png",
                 "alternativeForImg": "Pink Donut",
                 "selected": false,
                 "amountInCart": 0
@@ -346,7 +346,7 @@ let foodCategories = [
                 "currentPrice": 3,
                 "prevPrice": 4.99,
                 "rating": 4.2,
-                "img": "../assets/img/chocolate_donut.png",
+                "img": "./assets/img/chocolate_donut.png",
                 "alternativeForImg": "Schokoladen Donut",
                 "selected": false,
                 "amountInCart": 0
@@ -356,7 +356,7 @@ let foodCategories = [
                 "currentPrice": 4,
                 "prevPrice": 6.99,
                 "rating": 4.9,
-                "img": "../assets/img/happy_donut.png",
+                "img": "./assets/img/happy_donut.png",
                 "alternativeForImg": "Gelber Donut mit Streuseln",
                 "selected": false,
                 "amountInCart": 0
@@ -365,7 +365,7 @@ let foodCategories = [
     },
     {
         "name": "Eis",
-        "icon": "../assets/icons/ice_icon.png",
+        "icon": "./assets/icons/ice_icon.png",
         "alternativeForIcon": "Eis",
         "foods": [
             {
@@ -373,7 +373,7 @@ let foodCategories = [
                 "currentPrice": 2,
                 "prevPrice": 2.99,
                 "rating": 4.5,
-                "img": "../assets/img/chocolate_ice.png",
+                "img": "./assets/img/chocolate_ice.png",
                 "alternativeForImg": "Schokoladen Eis im Hörnchen",
                 "selected": false,
                 "amountInCart": 0
@@ -383,7 +383,7 @@ let foodCategories = [
                 "currentPrice": 4,
                 "prevPrice": 4.99,
                 "rating": 4.8,
-                "img": "../assets/img/mixed_ice.png",
+                "img": "./assets/img/mixed_ice.png",
                 "alternativeForImg": "Gemischtes Eis auf einem Teller",
                 "selected": false,
                 "amountInCart": 0
@@ -393,7 +393,7 @@ let foodCategories = [
                 "currentPrice": 1,
                 "prevPrice": 1.99,
                 "rating": 4.2,
-                "img": "../assets/img/water_ice.png",
+                "img": "./assets/img/water_ice.png",
                 "alternativeForImg": "Wassereis am Stiel",
                 "selected": false,
                 "amountInCart": 0

@@ -22,6 +22,11 @@ function saveWishlistToLocalStorage() {
 };
 
 function getFromLocalStorage() {
+    getFromLocalStorage1();
+    getFromLocalStorage2();
+};
+
+function getFromLocalStorage1() {
     let storedFood = localStorage.getItem("food");
     if (storedFood) {
         foodCategories = JSON.parse(storedFood);
@@ -30,6 +35,9 @@ function getFromLocalStorage() {
     if (storedCart) {
         cart = JSON.parse(storedCart);
     }
+};
+
+function getFromLocalStorage2() {
     let storedRecentOrders = localStorage.getItem("recentOrders");
     if (storedRecentOrders) {
         recentOrders = JSON.parse(storedRecentOrders);

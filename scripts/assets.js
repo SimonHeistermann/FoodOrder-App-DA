@@ -33,11 +33,7 @@ function deleteItemFrom(index, from) {
     updateAmount(wishlist, from[index]);
     updateAmount(recentOrders, from[index]);
     saveToLocalStorage();
-    if(mobileMode === false) {
-        renderCart();
-    } else if (mobileMode === true) {
-        renderMobileCart();
-    }
+    renderCorrectCart();
 };
 
 function clearItems(location) {
@@ -54,11 +50,7 @@ function clearItems(location) {
     }
     location.length = 0;
     saveToLocalStorage();
-    if(mobileMode === false) {
-        renderCart();
-    } else if (mobileMode === true) {
-        renderMobileCart();
-    }
+    renderCorrectCart();
 };
 
 function changeNavBorderStyling(id) {
@@ -224,4 +216,28 @@ function changeIcon(window) {
     homeLogoRef.classList.add('d__none');
     let logoRef = document.getElementById(window + '_logo');
     logoRef.classList.remove('d__none');
+};
+
+function renderCorrectCart() {
+    if(mobileMode === false) {
+        renderCart();
+    } else if (mobileMode === true) {
+        renderMobileCart();
+    }
+};
+
+function moveItemToCart(sourceArray, indexItem, updateArrays) {
+    let currentFood = sourceArray[indexItem];
+    if (!currentFood) return;
+    addToCartIfNotExists(cart, currentFood);
+    currentFood.amountInCart = (currentFood.amountInCart || 0) + 1;
+    for (i = 0; i < updateArrays.length; i++) {
+        updateAmount(updateArrays[i], currentFood);
+    }
+    updateAmount(cart, currentFood);
+    updateAmountInFoodCategories(currentFood);
+    saveToLocalStorage();
+    if (!mobileMode) {
+        renderCart();
+    }
 };

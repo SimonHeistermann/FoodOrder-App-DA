@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="./styles/category.css">
     <link rel="stylesheet" type="text/css" href="./styles/foods.css">
     <link rel="stylesheet" type="text/css" href="./styles/shopping_cart.css">
+    <link rel="stylesheet" type="text/css" href="./styles/filter.css">
     <link rel="stylesheet" type="text/css" href="./styles/footer.css">
     <link rel="stylesheet" type="text/css" href="./styles/assets.css">
 
@@ -21,10 +22,12 @@
     <script src="./scripts/save.js"></script>
     <script src="./script.js"></script>
     <script src="./scripts/cart.js"></script>
+    <script src="./scripts/temp_and_mobile_cart.js"></script>
     <script src="./scripts/recents.js"></script>
     <script src="./scripts/wishlist.js"></script>
     <script src="./scripts/structure_templates.js"></script>
     <script src="./scripts/templates.js"></script>
+    <script src="./scripts/search.js"></script>
     <script src="./scripts/assets.js"></script>
 
 </head>
@@ -36,14 +39,14 @@
                 <h1 class="header__headline">Bestell<span class="headerheadline__right">App</span></h1>
             </div>
             <div class="headerbox__right">
-                <form onsubmit="searchFood(event)" class="searchbar__container">
+                <form onsubmit="filterFood(event)" class="searchbar__container">
                     <label for="search_input">
                         <img class="searchbar__logo" src="./assets/icons/lupe_icon.png" alt="Lupe-Icon">
                     </label>
-                    <input class="searchbar" oninput="searchFood(event)" id="search_input" type="text" placeholder="Suche nach Essen...">
+                    <input class="searchbar" oninput="filterFood(event)" id="search_input" type="text" placeholder="Suche nach Essen...">
                 </form>
                 <div class="headerbutton__box">
-                    <button onclick="openFilterOverlay()" class="filter__button">
+                    <button id="filter_button" class="filter__button">
                         Filter
                         <img class="filter__icon" src="./assets/icons/filter_icon.png" alt="Filter">
                     </button>
@@ -56,28 +59,7 @@
         </div>
     </header>
     <main id="main_content">
-        <button class="totop__button" id="totop_button" onclick="backToTop()"></button>
-        <h2 id="wishlist_header" class="d__none">Wunschliste</h2>
-        <h2 id="standard_header" class="">Entdecke unsere Kategorien</h2>
-        <div class="content__container" id="content_container">
-            <div class="content__left" id="content_left">
-                <div class="categories__container" id="categories_container">
-                </div>
-                <nav>
-                    <div class="nav__container">
-                        <button class="navbutton__open" id="nav_popular" onclick="openPopularFoods('popular')"><h2>Beliebt</h2></button>
-                        <button class="" id="nav_recent" onclick="openRecentOrders('recent')"><h2>Zuletzt</h2></button>
-                    </div>
-                    <button onclick="orderTempCartFoods()" id="orderselected_button" class="orderselected__button d__none">Alles Bestellen</button>
-                    
-                </nav>
-                <div class="food__section" id="food_section">
-                </div>
-            </div>
-            <div class="content__right" id="content_right">
-            </div>
-        </div>
-
+        
     </main>
     <footer>
         <div class="footer__container">

@@ -6,8 +6,10 @@ function openWishlist() {
     currentWindow = 'wishlist';
     changeWishlistAndHomeLogo('wishlist');
     changeHeader('wishlist');
+    changeIcon('cart');
     renderWishlistStructure();
     renderWishlistContent();
+    initFilterContainer();
     if(mobileMode === false) {
         renderCart();
     }
@@ -43,21 +45,7 @@ function copyFoodToWishlist(indexCategory, indexFood) {
 };
 
 function moveWishlistFoodToCart(indexWishlist) {
-    let currentFood = wishlist[indexWishlist];
-    if (!currentFood) return;
-    addToCartIfNotExists(cart, currentFood);
-    if (currentFood.amountInCart === 0) {
-        currentFood.amountInCart = 1; 
-    } else {
-        currentFood.amountInCart += 1;
-    }
-    updateAmount(recentOrders, currentFood);
-    updateAmount(cart, currentFood);
-    updateAmountInFoodCategories(currentFood);
-    saveToLocalStorage();
-    if(mobileMode === false) {
-        renderCart();
-    }
+    moveItemToCart(wishlist, indexWishlist, [recentOrders]);
 };
 
 
