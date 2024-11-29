@@ -74,8 +74,8 @@
 .totop__button {
     display: none;
     position: fixed;
-    bottom: 120px;
-    right: 30px;
+    bottom: 100px;
+    right: 16px;
     background-color: white;
     cursor: pointer;
     padding: 20px 20px;
@@ -100,6 +100,9 @@
 
 .content__left {
     width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
 }
 
 @media(max-width: 1025px) {
@@ -117,7 +120,7 @@
     }
 
     .content__left {
-        width: 95%;
+        width: 100%;
     }
 
     .content__right {

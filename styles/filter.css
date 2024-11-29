@@ -28,7 +28,7 @@
     position: absolute;
     top: -20px;
     right: 0px;
-    width: 94px;
+    width: 93px;
     height: 30px;
     background-color: #ED5834;
 }
@@ -41,4 +41,10 @@
 
 .filter__box input {
     accent-color: #F8C64F;
+}
+
+@media(max-width: 1025px) {
+    .filter__container::before {
+        width: 93px;
+    }
 }

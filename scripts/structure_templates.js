@@ -2,27 +2,41 @@ function renderHTMLStandardFoundation() {
     return  ` 
             <div id="filter_container" class="filter__container">
                 <div class="filter__box">
-                    <input id="appetizer" type="checkbox" onclick="toggleFilter('appetizer')">
+                    <input id="appetizer" type="checkbox" onclick="toggleFilter('appetizer')" 
+                    ${currentActiveFilter.includes('appetizer') ? 'checked' : ''}>
                     Vorspeisen
                 </div>
                 <div class="filter__box">
-                    <input id="side_dish" type="checkbox" onclick="toggleFilter('side_dish')">
+                    <input id="side_dish" type="checkbox" onclick="toggleFilter('side_dish')" 
+                    ${currentActiveFilter.includes('side_dish') ? 'checked' : ''}>
                     Beilagen
                 </div>
                 <div class="filter__box">
-                    <input id="main_dish" type="checkbox" onclick="toggleFilter('main_dish')">
+                    <input id="main_dish" type="checkbox" onclick="toggleFilter('main_dish')" 
+                    ${currentActiveFilter.includes('main_dish') ? 'checked' : ''}>
                     Hauptgang
                 </div>
                 <div class="filter__box">
-                    <input id="dessert" type="checkbox" onclick="toggleFilter('dessert')">
+                    <input id="dessert" type="checkbox" onclick="toggleFilter('dessert')" 
+                    ${currentActiveFilter.includes('dessert') ? 'checked' : ''}>
                     Dessert
                 </div>
             </div>
             <button class="totop__button" id="totop_button" onclick="backToTop()"></button>
         <h2 id="wishlist_header" class="d__none">Wunschliste</h2>
-        <h2 id="standard_header" class="">Entdecke unsere Kategorien</h2>
         <div class="content__container" id="content_container">
             <div class="content__left" id="content_left">
+                <div class="aot__section">
+                    <div class="aot__container">
+                        <div class="aotimg__container">
+                            <img class="aotimg" src="./assets/img/aot_img.png" alt="Header Foto">
+                        </div>
+                        <div class="aoticon__container">
+                            <img src="./assets/icons/delivery_logo_icon_big.png" alt="Logo">
+                        </div>
+                    </div>
+                </div>
+                <h2 id="standard_header" class="">Entdecke unsere Kategorien</h2>
                 <div class="categories__container" id="categories_container">
                 </div>
                 <nav>
@@ -44,6 +58,17 @@ function renderHTMLStandardFoundation() {
 
 function renderHTMLStandardStructure() {
     return  `
+            <div class="aot__section">
+                    <div class="aot__container">
+                        <div class="aotimg__container">
+                            <img class="aotimg" src="./assets/img/aot_img.png" alt="Header Foto">
+                        </div>
+                        <div class="aoticon__container">
+                            <img src="./assets/icons/delivery_logo_icon_big.png" alt="Logo">
+                        </div>
+                    </div>
+            </div>
+            <h2 id="standard_header" class="">Entdecke unsere Kategorien</h2>
             <div class="categories__container" id="categories_container">
             </div>
                 <nav>
@@ -155,19 +180,23 @@ function renderHTMLMobileCartStructure() {
     return  `
             <div id="filter_container" class="filter__container">
                 <div class="filter__box">
-                    <input id="appetizer" type="checkbox" onclick="toggleFilter('appetizer')">
+                    <input id="appetizer" type="checkbox" onclick="toggleFilter('appetizer')" 
+                    ${currentActiveFilter.includes('appetizer') ? 'checked' : ''}>
                     Vorspeisen
                 </div>
                 <div class="filter__box">
-                    <input id="side_dish" type="checkbox" onclick="toggleFilter('side_dish')">
+                    <input id="side_dish" type="checkbox" onclick="toggleFilter('side_dish')" 
+                    ${currentActiveFilter.includes('side_dish') ? 'checked' : ''}>
                     Beilagen
                 </div>
                 <div class="filter__box">
-                    <input id="main_dish" type="checkbox" onclick="toggleFilter('main_dish')">
+                    <input id="main_dish" type="checkbox" onclick="toggleFilter('main_dish')" 
+                    ${currentActiveFilter.includes('main_dish') ? 'checked' : ''}>
                     Hauptgang
                 </div>
                 <div class="filter__box">
-                    <input id="dessert" type="checkbox" onclick="toggleFilter('dessert')">
+                    <input id="dessert" type="checkbox" onclick="toggleFilter('dessert')" 
+                    ${currentActiveFilter.includes('dessert') ? 'checked' : ''}>
                     Dessert
                 </div>
             </div>
@@ -255,23 +284,27 @@ function renderHTMLMobileCartStructure() {
 function renderHTMLSearchStructure() {
     return  `
             <div id="filter_container" class="filter__container">
-            <div class="filter__box">
-                <input id="appetizer" type="checkbox" onclick="toggleFilter('appetizer')">
-                Vorspeisen
+                <div class="filter__box">
+                    <input id="appetizer" type="checkbox" onclick="toggleFilter('appetizer')" 
+                    ${currentActiveFilter.includes('appetizer') ? 'checked' : ''}>
+                    Vorspeisen
+                </div>
+                <div class="filter__box">
+                    <input id="side_dish" type="checkbox" onclick="toggleFilter('side_dish')" 
+                    ${currentActiveFilter.includes('side_dish') ? 'checked' : ''}>
+                    Beilagen
+                </div>
+                <div class="filter__box">
+                    <input id="main_dish" type="checkbox" onclick="toggleFilter('main_dish')" 
+                    ${currentActiveFilter.includes('main_dish') ? 'checked' : ''}>
+                    Hauptgang
+                </div>
+                <div class="filter__box">
+                    <input id="dessert" type="checkbox" onclick="toggleFilter('dessert')" 
+                    ${currentActiveFilter.includes('dessert') ? 'checked' : ''}>
+                    Dessert
+                </div>
             </div>
-            <div class="filter__box">
-                <input id="side_dish" type="checkbox" onclick="toggleFilter('side_dish')">
-                Beilagen
-            </div>
-            <div class="filter__box">
-                <input id="main_dish" type="checkbox" onclick="toggleFilter('main_dish')">
-                Hauptgang
-            </div>
-            <div class="filter__box">
-                <input id="dessert" type="checkbox" onclick="toggleFilter('dessert')">
-                Dessert
-            </div>
-        </div>
         <button class="totop__button" id="totop_button" onclick="backToTop()"></button>
         <h2 id="search_header" class="">Suchergebnisse:</h2>
         <div class="content__container" id="content_container">

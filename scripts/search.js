@@ -6,14 +6,14 @@ let filter = [
         ]
     },
     {   
-        "name": "sideDish",
+        "name": "side_dish",
         "categories" : [
             foodCategories[1],
             foodCategories[2]
         ]
     },
     {   
-        "name": "mainDish",
+        "name": "main_dish",
         "categories" : [
             foodCategories[3],
             foodCategories[4],
@@ -145,8 +145,11 @@ function ifEmptySearch(searchTerm) {
 };
 
 function shouldIncludeCategory(category) {
+    if (currentActiveFilter.length === 0) {
+        return true;
+    }
     for (let i = 0; i < filter.length; i++) {
-        if (currentActiveFilter.indexOf(filter[i].name) !== -1) {
+        if (currentActiveFilter.includes(filter[i].name)) {
             for (let j = 0; j < filter[i].categories.length; j++) {
                 if (filter[i].categories[j].name === category.name) {
                     return true;
@@ -154,7 +157,7 @@ function shouldIncludeCategory(category) {
             }
         }
     }
-    return currentActiveFilter.length === 0;
+    return false;
 };
 
 function renderFilteredFoodItems(filteredFoodItems) {
