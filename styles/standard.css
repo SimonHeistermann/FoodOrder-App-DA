@@ -49,12 +49,12 @@ header {
 
 main {
     flex: 1;
-    overflow: auto;
     width: min(100%, 1920px);
     margin-inline: auto;
     padding-inline: clamp(16px, 6vw, 64px);
     margin-top: 32px;
     margin-bottom: 160px;
+    position: relative;
 }
 
 input:focus {

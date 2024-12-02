@@ -99,10 +99,15 @@
 }
 
 .content__left {
-    width: 75%;
+    width: calc(100% - 475px);
     display: flex;
     flex-direction: column;
     gap: 32px;
+}
+
+.content__right {
+    flex-grow: 1;
+    position: relative;
 }
 
 @media(max-width: 1025px) {

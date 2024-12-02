@@ -98,7 +98,7 @@ function renderHTMLCartItems(indexCart) {
 function renderHTMLNoCartItems() {
     return `
             <div class="noitemsin__cart">
-                Keine Bestellungen im Warenkrob...
+                Keine Bestellungen im Warenkorb...
             </div>
             `
 };

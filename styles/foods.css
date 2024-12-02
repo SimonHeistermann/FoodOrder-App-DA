@@ -207,6 +207,12 @@ nav button:hover, nav button:active {
         padding-right: 64px;
     }
 }
+
+@media(max-width: 450px) {
+    .foodcontainer__content h2 {
+        word-break: break-all;
+    }
+}
  
 @media(max-width: 400px) {
     .foodcontainer__img img {
@@ -223,3 +229,11 @@ nav button:hover, nav button:active {
         gap: 8px;
     }
 }
+
+@media(max-width: 350px) {
+    .food__checkbox {
+        top: 24px;
+        left: 24px;
+    }
+}
+

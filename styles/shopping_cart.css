@@ -4,19 +4,18 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 64px;
-    padding: 32px 16px 32px 16px;
+    padding: 16px;
     border-radius: 8px;
     filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.13));
     width: 437px;
-    max-height: 1578px;
-    align-self: flex-start;
-    height: auto;
+    position: sticky;
+    top: 8px;
 }
 
 .shoppingcart__content {
     display: flex;
     flex-direction: column;
-    gap: 64px;
+    gap: 16px;
 }
 
 .cart__header {
@@ -41,10 +40,10 @@
 .cart__container {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 16px;
     overflow-y: auto;
     padding-right: 16px;
-    max-height: 548px;
+    max-height: 212px;
 }
 
 .noitemsin__cart {
@@ -62,18 +61,18 @@
 .cartitem__img {
     background-color: #EEF2F5;
     border-radius: 8px;
-    padding: 12px;
+    padding: 8px;
 }
 
 .cartitem__img img {
-    height: 56px;
-    width: 56px;
+    height: 40px;
+    width: 40px;
 }
 
 .cartitem__content {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
     width: 100%;
 }
 
@@ -139,7 +138,7 @@
 .cart__bottom {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 16px;
 }
 
 .payment__section {
@@ -148,8 +147,8 @@
     border-radius: 16px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
-    padding: 16px;
+    gap: 8px;
+    padding: 12px;
 }
 
 .paymentservice__header {
@@ -165,13 +164,13 @@
 .payment__container {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 8px;
 }
 
 .payment__sums {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
 }
 
 .paymentsum__box {
@@ -239,13 +238,13 @@
 .paymentservice__section {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
 }
 
 .paymentservices__container {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 8px;
     justify-content: center;
 }
 
@@ -256,8 +255,9 @@
     background: white;
     padding: 8px 16px 8px 16px;
     border-radius: 8px;
-    width: 158px;
+    width: 182px;
     height: 112px;
+    cursor: pointer;
 }
 
 .payment__service img {
@@ -382,6 +382,8 @@
     justify-content: space-between;
     align-items: center;
     gap: 16px;
+    word-break: break-all;
+    font-size: 16px;
 }
 
 .paymentsum__boxmobile {
