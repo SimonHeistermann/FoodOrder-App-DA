@@ -258,7 +258,7 @@ let foodCategories = [
                 "alternativeForImg": "Pizza Morzarella",
                 "selected": false,
                 "amountInCart": 0
-            },
+            }
 
         ]
     },
@@ -296,7 +296,7 @@ let foodCategories = [
                 "alternativeForImg": "T-Bone Steaks",
                 "selected": false,
                 "amountInCart": 0
-            },
+            }
         ]
     },
     {
@@ -323,7 +323,7 @@ let foodCategories = [
                 "alternativeForImg": "Hünchen Grillplatte",
                 "selected": false,
                 "amountInCart": 0
-            },
+            }
         ]
     },
     {
