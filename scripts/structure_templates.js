@@ -22,6 +22,7 @@ function renderHTMLStandardFoundation() {
                     Dessert
                 </div>
             </div>
+            <div class="disclaimer__banner">Übungsprojekt — keine echte Bestell-App. Es werden keine Bestellungen, Zahlungen oder Lieferungen abgewickelt. <a href="./impressum.html">Mehr erfahren</a></div>
             <button class="totop__button" id="totop_button" onclick="backToTop()"></button>
         <h2 id="wishlist_header" class="d__none">Wunschliste</h2>
         <div class="content__container" id="content_container">
@@ -170,6 +171,7 @@ function renderHTMLCartStructure() {
                             </div>
                         </div>
                     </div>
+                    <div class="cart__disclaimer">Dies ist ein Übungsprojekt — es werden keine echten Bestellungen oder Zahlungen verarbeitet.</div>
                     <button type="submit" class="completeorder__button">Bestellung abschließen</button>
                 </div>
             </form>
@@ -275,6 +277,7 @@ function renderHTMLMobileCartStructure() {
                         </div>
                     </div>
                 </div>
+                <div class="cart__disclaimer">Dies ist ein Übungsprojekt — es werden keine echten Bestellungen oder Zahlungen verarbeitet.</div>
                 <button type="submit" class="completeorder__button">Bestellung abschließen</button>
             </div>
         </form>

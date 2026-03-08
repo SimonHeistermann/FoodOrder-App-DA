@@ -1,34 +1,69 @@
-# FoodOrder-App-DA  
+# Bestell App
 
-**FoodOrder-App-DA** is a simple and intuitive food ordering application built with **HTML, CSS, and JavaScript**. It allows users to browse food categories, add meals to their cart, and complete orders with various payment options. The app features a **dynamic cart**, **delivery options**, and a **responsive design** for a seamless ordering experience.  
+> Food ordering web app with cart, wishlist & checkout flow — built as a training project at Developer Akademie.
 
-🚀 **Features**  
-- Browse and select meals from different **food categories**  
-- Add items to the **cart** and view a real-time order summary  
-- Choose **delivery options** and apply **discount codes**  
-- Secure checkout with **Apple Pay, PayPal & Credit Card**  
-- Fully **responsive design** for desktop and mobile  
+## Disclaimer
 
-🛠 **Tech Stack**  
-- Frontend: HTML, CSS, JavaScript  
-- Version Control: Git  
+This is a **training project** built as part of my education at [Developer Akademie](https://developerakademie.com/). It is not a commercial product and is not intended for real-world use.
 
-📌 **Getting Started**  
+- This is **not a real restaurant or delivery service**
+- No real orders are placed, no payments are processed, no deliveries are made
+- Any resemblance to real businesses is for educational demonstration only
+
+## About
+
+Bestell App is a single-page food ordering application that simulates a restaurant delivery/pickup service. Users can browse food categories, add items to a cart, manage a wishlist, apply gift codes, choose delivery or pickup, and select a (mock) payment method. All data is stored locally in the browser — there is no backend.
+
+The project demonstrates core frontend skills: DOM manipulation, state management with localStorage, responsive design, and dynamic template rendering.
+
+## Tech Stack
+
+- HTML5
+- CSS3 (modular stylesheets, responsive design)
+- JavaScript (ES6, vanilla — no frameworks)
+
+## Features
+
+- 10 food categories with items, prices, and ratings
+- Shopping cart with quantity management and price calculation (incl. 19% VAT)
+- Delivery (5,00 EUR) vs. pickup option
+- Gift code / coupon system
+- Wishlist (favorites)
+- Recent orders tracking
+- Search and filter by meal type (appetizer, side dish, main course, dessert)
+- Responsive layout (desktop + mobile)
+- Mock payment method selection (Apple Pay, Mastercard, PayPal, Google Pay)
+
+## Getting Started
+
+### Prerequisites
+
+Any modern web browser. No build tools or package manager required.
+
+### Running
+
+Open `index.html` directly in your browser, or serve with any static HTTP server:
 
 ```bash
-1️⃣ Clone the Repository  
-git clone https://github.com/YOUR_USERNAME/FoodOrder-App.git  
-cd FoodOrder-App  
+# Python
+python3 -m http.server
 
-2️⃣ Install Dependencies (if needed)  
-npm install  
-
-3️⃣ Start the App  
-Simply open index.html in your browser or use a local development server like:  
-npx live-server  
+# Node.js
+npx http-server
 ```
-## 🌍 Deployment
-**FoodOrder-App-DA** can be easily deployed using **GitHub Pages**, **Netlify**, or any static hosting service.
 
-## 🤝 Contributing
-Feel free to **fork** this repository and contribute! 🎉
+## Legal
+
+- [Impressum](impressum.html)
+- [Datenschutzerklärung](datenschutz.html)
+
+## Author
+
+**Simon Maximilian Heistermann**
+- Website: [simon-heistermann.de](https://simon-heistermann.de)
+- Email: simon@heistermann-solutions.de
+- LinkedIn: [Simon Heistermann](https://www.linkedin.com/in/simon-heistermann/)
+
+## License
+
+This project is part of a training curriculum and is not licensed for commercial use.

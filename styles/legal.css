@@ -1,0 +1,171 @@
+.legal__container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 16px 0 64px;
+    line-height: 1.7;
+}
+
+.legal__container h2 {
+    margin-bottom: 24px;
+    color: #ED5834;
+}
+
+.legal__container h3 {
+    margin-top: 32px;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.legal__container h4 {
+    margin-top: 20px;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+.legal__container p {
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.legal__container ul {
+    margin-bottom: 12px;
+    padding-left: 24px;
+}
+
+.legal__container ul li {
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.legal__container a {
+    color: #ED5834;
+    text-decoration: underline;
+}
+
+.legal__container a:hover {
+    color: #f36d4c;
+}
+
+.legal__backlink {
+    display: inline-block;
+    margin-bottom: 24px;
+    font-size: 16px;
+    text-decoration: none !important;
+}
+
+.legal__notice {
+    background-color: #FFF8E1;
+    border-left: 4px solid #F8C64F;
+    padding: 16px 20px;
+    margin-bottom: 32px;
+    border-radius: 0 8px 8px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.legal__toc {
+    background-color: #F9F9FB;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 32px;
+}
+
+.legal__toc h4 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.legal__toc ol {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.legal__toc li {
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.legal__toc a {
+    text-decoration: none;
+}
+
+.legal__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 20px;
+    font-size: 14px;
+}
+
+.legal__table th,
+.legal__table td {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px 14px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.legal__table th {
+    background-color: #F9F9FB;
+    font-weight: 600;
+    color: #333;
+}
+
+.legal__table td {
+    color: #444;
+}
+
+.legal__updated {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #888;
+    font-style: italic;
+}
+
+.footer__links {
+    display: flex;
+    gap: 24px;
+}
+
+/* Disclaimer banner on main app */
+.disclaimer__banner {
+    background-color: #FFF8E1;
+    border-left: 4px solid #F8C64F;
+    padding: 10px 16px;
+    margin-bottom: 16px;
+    border-radius: 0 8px 8px 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.disclaimer__banner a {
+    color: #ED5834;
+    text-decoration: underline;
+}
+
+/* Cart disclaimer */
+.cart__disclaimer {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    padding: 8px 12px;
+    line-height: 1.4;
+}
+
+@media(max-width: 600px) {
+    .legal__container {
+        padding: 12px 0 48px;
+    }
+
+    .legal__table {
+        font-size: 13px;
+    }
+
+    .legal__table th,
+    .legal__table td {
+        padding: 8px 10px;
+    }
+}
